@@ -44,17 +44,7 @@ export default function LiveMatches() {
 
   return (
     <>
-      <div className="flex w-full flex-wrap gap-0 justify-start items-center space-x-8 mt-4 mb-4">
-        {matches.map((match, index) => (
-          <Link
-            to={`/live/${match.key}`}
-            key={index}
-            className="text-black font-semibold p-2 px-3 bg-red-300 rounded-3xl text-xs lg:text-sm hover:bg-gray-300  whitespace-nowrap flex items-center gap-2"
-          >
-            {match.teams.a.name} vs {match.teams.b.name}
-          </Link>
-        ))}
-      </div>
+      
       <div className="w-full z-0">
         {loading ? (
           <p>
