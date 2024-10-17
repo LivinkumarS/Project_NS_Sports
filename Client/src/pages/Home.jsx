@@ -6,6 +6,8 @@ import CompletedMatches from "../components/CompletedMatches";
 import UpcomingMatches from "../components/UpcomingMatches";
 import NewsGlimp from "../components/NewsGlimp";
 import BlogGlimp from "../components/BlogGlimp";
+import VideoGlimp from "../components/VideoGlimp";
+import CountryFlags from "../components/CountryFlags";
 
 const Home = () => {
   const location = useLocation();
@@ -111,9 +113,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-
       {/* News and Blogs */}
-
       <div className="mb-9 p-3 overflow-hidden flex flex-col bg-transparent gap-3 md:flex-row w-full rounded-lg max-w-[1200px] mx-auto">
         <div className="flex-1 bg-white p-4 w-full">
           <div className="flex items-center justify-between mb-2">
@@ -134,7 +134,7 @@ const Home = () => {
                 title={
                   "India Defeats Pakistan in Thrilling T20 World Cup Match"
                 }
-                date={'10/10/2024'}
+                date={"10/10/2024"}
               />
             </Link>
             <Link to="/">
@@ -145,7 +145,7 @@ const Home = () => {
                 title={
                   "Bangladesh Secures Historic Series Win Against South Africa"
                 }
-                date={'10/10/2024'}
+                date={"10/10/2024"}
               />
             </Link>
             <Link to="/">
@@ -154,7 +154,7 @@ const Home = () => {
                   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT283m5qLpGCJnnUKLofeQpWgXCU7malgOPSw&s"
                 }
                 title={"New Zealand Stuns Australia with Last-Ball Victory"}
-                date={'10/10/2024'}
+                date={"10/10/2024"}
               />
             </Link>
             <Link to="/">
@@ -165,7 +165,7 @@ const Home = () => {
                 title={
                   "WBBL 2024: Sydney Sixers Start the Season with a Big Win"
                 }
-                date={'10/10/2024'}
+                date={"10/10/2024"}
               />
             </Link>
             <Link to="/">
@@ -176,7 +176,7 @@ const Home = () => {
                 title={
                   "England's Test Series Triumph Over Sri Lanka Breaks Records"
                 }
-                date={'10/10/2024'}
+                date={"10/10/2024"}
               />
             </Link>
             <Link to="/">
@@ -185,7 +185,7 @@ const Home = () => {
                   "https://media.crictracker.com/media/attachments/1718278459668_Team-India.jpeg"
                 }
                 title={"BCCI Announces Schedule for India's Home Season 2024"}
-                date={'10/10/2024'}
+                date={"10/10/2024"}
               />
             </Link>
           </div>
@@ -199,16 +199,65 @@ const Home = () => {
             >
               See More
             </Link>
-
           </div>
-            <div className="w-full grid grid-cols-1 gap-0">
-              <Link to={'/blog'}><BlogGlimp image={'https://www.bjsports.live/wp-content/uploads/2024/08/Family-Friendly-Broadcast.webp'} title={'How Live Cricket Telecasts Are Being Revolutionized'} date={'10/10/2024'}/></Link>
-              <Link to={'/blog'}><BlogGlimp image={'https://static.cricbuzz.com/a/img/v1/i1/c378946/u19-world-cup-india-fail-to-cross-final-hurdle-after-stellar-campaign.jpg?d=high&p=det'} title={'Behind the Scenes: Bringing You Live Cricket Scores'} date={'10/10/2024'}/></Link>
-              <Link to={'/blog'}><BlogGlimp image={'https://media.licdn.com/dms/image/v2/D4D12AQElhjdmE2Ql-A/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1724934551680?e=2147483647&v=beta&t=i8CclKAONrjT90vie2_KXnmesQsgTIxY4jHha0wDnrk'} title={'The Future of Sports Streaming and Cricket Coverage'} date={'10/10/2024'}/></Link>
-              <Link to={'/blog'}><BlogGlimp image={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcVAVyEi1bj0BybovVVmWdxMGuGID-oSKs4w&s'} title={'Top 5 Features of the Best Cricket Streaming Apps'} date={'10/10/2024'}/></Link>
-              <Link to={'/blog'}><BlogGlimp image={'https://blog.robosoftin.com/wp-content/uploads/2023/11/The_Future_of_Sports.jpg'} title={'How Real-Time Cricket News Keeps Fans Engaged'} date={'10/10/2024'}/></Link>
-            </div>
+          <div className="w-full grid grid-cols-1 gap-0">
+            <Link to={"/blog"}>
+              <BlogGlimp
+                image={
+                  "https://www.bjsports.live/wp-content/uploads/2024/08/Family-Friendly-Broadcast.webp"
+                }
+                title={"How Live Cricket Telecasts Are Being Revolutionized"}
+                date={"10/10/2024"}
+              />
+            </Link>
+            <Link to={"/blog"}>
+              <BlogGlimp
+                image={
+                  "https://static.cricbuzz.com/a/img/v1/i1/c378946/u19-world-cup-india-fail-to-cross-final-hurdle-after-stellar-campaign.jpg?d=high&p=det"
+                }
+                title={"Behind the Scenes: Bringing You Live Cricket Scores"}
+                date={"10/10/2024"}
+              />
+            </Link>
+            <Link to={"/blog"}>
+              <BlogGlimp
+                image={
+                  "https://media.licdn.com/dms/image/v2/D4D12AQElhjdmE2Ql-A/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1724934551680?e=2147483647&v=beta&t=i8CclKAONrjT90vie2_KXnmesQsgTIxY4jHha0wDnrk"
+                }
+                title={"The Future of Sports Streaming and Cricket Coverage"}
+                date={"10/10/2024"}
+              />
+            </Link>
+            <Link to={"/blog"}>
+              <BlogGlimp
+                image={
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcVAVyEi1bj0BybovVVmWdxMGuGID-oSKs4w&s"
+                }
+                title={"Top 5 Features of the Best Cricket Streaming Apps"}
+                date={"10/10/2024"}
+              />
+            </Link>
+            <Link to={"/blog"}>
+              <BlogGlimp
+                image={
+                  "https://blog.robosoftin.com/wp-content/uploads/2023/11/The_Future_of_Sports.jpg"
+                }
+                title={"How Real-Time Cricket News Keeps Fans Engaged"}
+                date={"10/10/2024"}
+              />
+            </Link>
+          </div>
         </div>
+      </div>
+      {/* Videos */}
+
+      <div className="w-full mb-6">
+        <VideoGlimp />
+      </div>
+
+      {/* country flags */}
+      <div className="w-full">
+        <CountryFlags />
       </div>
     </div>
   );

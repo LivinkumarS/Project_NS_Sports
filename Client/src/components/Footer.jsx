@@ -156,7 +156,7 @@ export default function Footer() {
           <Link to="/feedback">Feedback</Link>
         </p>
         <p>
-          © {new Date().getFullYear()} NS Sports Media Ltd. All rights reserved.
+          © {new Date().getFullYear()} NS Sports All rights reserved.
         </p>
       </div>
     </footer>

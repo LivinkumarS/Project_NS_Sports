@@ -27,13 +27,13 @@ export default function LiveMatch({ matchKey }) {
       setMatchDetails(data);
 
       if (data.data.play && data.data.play.first_batting === "a") {
-        setTeamA(data.data.teams.a.name);
-        setTeamB(data.data.teams.b.name);
+        setTeamA(data.data.teams.a.code);
+        setTeamB(data.data.teams.b.code);
         setFirstBat("a");
         setSecondBat("b");
       } else {
-        setTeamA(data.data.teams.b.name);
-        setTeamB(data.data.teams.a.name);
+        setTeamA(data.data.teams.b.code);
+        setTeamB(data.data.teams.a.code);
         setFirstBat("b");
         setSecondBat("a");
       }
