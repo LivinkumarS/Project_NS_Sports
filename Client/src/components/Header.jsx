@@ -15,7 +15,7 @@ export default function Header() {
   const location = useLocation;
 
   return (
-    <div className="z-10 w-full px-[5%] xl:px-[10%] py-2 flex items-center justify-between bg-black text-white">
+    <div className="sticky top-0 z-10 w-full px-[5%] xl:px-[10%] py-2 flex items-center justify-between bg-black text-white">
       <Link to="/">
         <img src="/NS_logo.jpg" className="w-16 h-auto" alt="" />
       </Link>

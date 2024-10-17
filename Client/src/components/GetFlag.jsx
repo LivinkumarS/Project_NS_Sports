@@ -7,7 +7,7 @@ export default function GetFlag({ country_code }) {
   const apiKey = "RS5:d024f19ab0ae9cac2d57af2c0317f5bb";
 
   const fetchFlag = async () => {
-    if (country_code === "WIN") {
+    if (country_code === "WIN" || !country_code) {
       setTeamFlag("WIN");
       return;
     }
@@ -35,7 +35,7 @@ export default function GetFlag({ country_code }) {
 
   return (
     <div>
-      {country_code !== "WIN" ? (
+      {teamFlag !== "WIN" ? (
         <div
           className="w-20 h-auto shadow-lg mb-2"
           dangerouslySetInnerHTML={{ __html: teamFlag }}

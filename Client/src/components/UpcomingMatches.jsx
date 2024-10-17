@@ -90,7 +90,7 @@ export default function UpcomingMatches() {
           <h1 className="text-lg sm:text-xl font-bold mb-4">
             Upcoming Matches({matches.length})
           </h1>
-          <Slider {...settings} className="bg-gray-400 p-3">
+          <Slider {...settings} className="ml-1 sm:m-0 bg-transparent p-3">
             {matches.map((match) => (
               <Link to={`/match/${match.key}`} key={match.key}>
                 <div
