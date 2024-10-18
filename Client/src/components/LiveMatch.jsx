@@ -8,8 +8,7 @@ export default function LiveMatch({ matchKey }) {
   const [teamB, setTeamB] = useState(null);
   const [firstBat, setFirstBat] = useState(null);
   const [secondBat, setSecondBat] = useState(null);
-  const projectKey = "RS_P_1845764058746327073";
-  const apiKey = "RS5:d024f19ab0ae9cac2d57af2c0317f5bb";
+  const projectKey = import.meta.env.VITE_PROJECT_KEY;
 
   const fetchMatchDetails = async () => {
     try {

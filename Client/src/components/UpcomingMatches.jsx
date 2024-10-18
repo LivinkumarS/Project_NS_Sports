@@ -8,8 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 export default function UpcomingMatches() {
   const [matches, setMatches] = useState([]);
-  const projectKey = "RS_P_1845764058746327073";
-  const apiKey = "RS5:d024f19ab0ae9cac2d57af2c0317f5bb";
+  const projectKey = import.meta.env.VITE_PROJECT_KEY;
   const [loading, setLoading] = useState(true);
 
   const settings = {

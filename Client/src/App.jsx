@@ -8,10 +8,10 @@ import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
   const fetchAccessToken = async () => {
-    const project_key = "RS_P_1845764058746327073";
-    const api_key = "RS5:d024f19ab0ae9cac2d57af2c0317f5bb";
+    const projectKey = import.meta.env.VITE_PROJECT_KEY;
+    const api_key = import.meta.env.VITE_API_KEY;
 
-    const response = await fetch(`/api/v5/core/${project_key}/auth/`, {
+    const response = await fetch(`/api/v5/core/${projectKey}/auth/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +35,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Header />
-      <ScrollToTop/>
+      <ScrollToTop />
 
       <Routes>
         <Route path="/" element={<Home />} />

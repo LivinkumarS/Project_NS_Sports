@@ -3,8 +3,7 @@ import wi from "../assets/images/wi.webp";
 
 export default function GetFlag({ country_code }) {
   const [teamFlag, setTeamFlag] = useState(null);
-  const projectKey = "RS_P_1845764058746327073";
-  const apiKey = "RS5:d024f19ab0ae9cac2d57af2c0317f5bb";
+  const projectKey = import.meta.env.VITE_PROJECT_KEY;
 
   const fetchFlag = async () => {
     if (country_code === "WIN" || !country_code) {

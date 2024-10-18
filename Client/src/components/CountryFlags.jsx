@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 import GetFlag from "./GetFlag";
 
 export default function CountryFlags() {
-  const projectKey = "RS_P_1845764058746327073";
-  const apiKey = "RS5:d024f19ab0ae9cac2d57af2c0317f5bb";
-
   
 const countries = [
     "IND",
