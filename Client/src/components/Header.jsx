@@ -15,9 +15,9 @@ export default function Header() {
   const location = useLocation;
 
   return (
-    <div className="sticky top-0 z-10 w-full px-[5%] xl:px-[10%] py-2 flex items-center justify-between bg-black text-white">
+    <div className="sticky top-0 z-10 w-full px-[5%] xl:px-[10%] py-2 flex items-center justify-between bg-[#0077b6] text-white">
       <Link to="/">
-        <img src="/NS_logo.jpg" className="w-16 h-auto" alt="" />
+        <img src="/NS_logo.png" className="w-16 h-auto" alt="" />
       </Link>
       <nav className="font-semibold gap-4 md:gap-7 items-center justify-center hidden md:flex">
         <Link
@@ -129,7 +129,7 @@ export default function Header() {
       </div>
 
       <div
-        className={`z-10 sidebar md:hidden w-[70vw] p-7 flex flex-col gap-4 items-start justify-start font-semibold text-black bg-[#d62929] fixed top-0 ${
+        className={`z-10 sidebar md:hidden w-[70vw] p-7 flex flex-col gap-4 items-start justify-start font-semibold text-white bg-[#0077b6] fixed top-0 ${
           navState ? "right-0" : "right-[-150%]"
         } min-h-screen shadow-lg shadow-black`}
       >

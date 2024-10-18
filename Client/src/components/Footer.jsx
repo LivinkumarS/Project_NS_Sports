@@ -11,7 +11,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-gray-300 py-8 px-6 xl:px-[5%]">
+    <footer className="bg-[#1d1e1f] text-gray-300 py-8 px-6 xl:px-[5%]">
       <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-6 gap-6 text-sm">
         <div>
           <h4 className="text-white text-lg mb-4 font-semibold">Key Series</h4>

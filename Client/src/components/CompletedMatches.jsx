@@ -93,7 +93,7 @@ export default function CompletedMatches() {
             {matches.map((match) => (
               <Link to={`/match/${match.key}`} key={match.key}>
                 <div
-                  className="flex mx-2 flex-col h-[250px] p-5 gap-1 rounded-lg border border-gray-200 bg-white shadow-md"
+                  className="flex mx-2 flex-col h-[280px] p-5 gap-1 rounded-lg border border-gray-200 bg-white shadow-md"
                   key={match.key}
                 >
                   <div className="top-0 right-0 w-full h-fit flex items-center justify-center p-3">

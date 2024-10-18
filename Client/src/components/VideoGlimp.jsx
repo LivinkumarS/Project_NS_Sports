@@ -29,7 +29,7 @@ export default function VideoGlimp() {
   ];
 
   return (
-    <div className="w-full max-w-[1000px] bg-white p-4 mx-auto px-4 py-8">
+    <div className="w-full rounded-lg bg-white p-4 mx-auto px-4 py-8">
       <h2 className="text-3xl font-bold text-center mb-8">Recent Videos</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {videos.map((video, index) => (

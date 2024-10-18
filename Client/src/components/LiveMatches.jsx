@@ -4,11 +4,23 @@ import GetFlag from "./GetFlag";
 import { Link } from "react-router-dom";
 import { GoDotFill } from "react-icons/go";
 import LiveMatch from "./LiveMatch";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function LiveMatches() {
   const [matches, setMatches] = useState([]);
   const projectKey = import.meta.env.VITE_PROJECT_KEY;
   const [loading, setLoading] = useState(true);
+  
+
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
 
   const fetchFeaturedMatches = async () => {
     try {
@@ -43,7 +55,6 @@ export default function LiveMatches() {
 
   return (
     <>
-      
       <div className="w-full z-0">
         {loading ? (
           <p>
@@ -55,18 +66,14 @@ export default function LiveMatches() {
             />
           </p>
         ) : matches.length > 0 ? (
-          <div className="shadow-lg w-full max-w-3xl mx-auto h-72 sm:h-80 xl:h-80 2xl:h-96 hover:rounded-lg ease-in transition-all duration-200 hover:bg-[#d4d4d6] bg-white">
-            <Carousel>
-              {matches.map((match) => (
-                <Link
-                  key={match.key}
-                  className="w-full h-full"
-                  to={`/live/${match.key}`}
-                >
-                  <LiveMatch matchKey={match.key} />
-                </Link>
-              ))}
-            </Carousel>
+          <div className="w-full mx-auto max-w-4xl p-3 sm:p-7 sm:px-10 rounded-lg bg-[#0077b6]">
+            <Slider {...settings}>
+              {
+                matches.map((mat,ind)=>(
+                  <LiveMatch matchKey={mat.key} key={ind}/>
+                ))
+              }
+            </Slider>
           </div>
         ) : (
           <h1 className="text-lg text-gray-500 font-semibold">

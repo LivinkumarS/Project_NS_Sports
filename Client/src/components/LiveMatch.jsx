@@ -51,10 +51,10 @@ export default function LiveMatch({ matchKey }) {
   }, []);
 
   return (
-    <div className="flex flex-col gap-0 sm:gap-1 p-4 sm:p-0 h-full items-center justify-center bg-transparent">
+    <div className="flex w-full flex-col gap-0 bg-white p-3 sm:gap-1 sm:p-0 h-full items-center justify-center bg-transparent">
       {matchDetails && (
-        <>
-          <h1 className="absolute top-1 left-1 sm:top-3 sm:left-3 text-xs sm:text-sm font-bold text-red-600 flex gap-1">
+        <div className="sm:p-5 py-5 w-full relative ">
+          <h1 className="absolute top-0 left-0 sm:top-2 sm:left-2  text-xs sm:text-sm font-bold text-red-600 flex gap-1">
             Live Match{" "}
             <span className="mt-[3px]">
               <GoDotFill />
@@ -108,7 +108,7 @@ export default function LiveMatch({ matchKey }) {
           <h1 className="text-center text-sm sm:text-md font-bold">
             {matchDetails.data.venue.name}
           </h1>
-        </>
+        </div>
       )}
     </div>
   );

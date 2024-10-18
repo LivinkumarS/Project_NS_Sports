@@ -2,82 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-    padding: 0;
-    margin: 0;
-    border: 0;
-    outline: 0;
-    box-sizing: border-box;
+@font-face {
+  font-family: Glida;
+  src: url('/font/Gilda_Display/GildaDisplay-Regular.ttf');
 }
 
-body{
-    overflow-x: hidden;
-        background-image: url('./assets/images/bg-img2-crop.jpeg');
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: top center;
-        background-size: cover; 
-        background-color: white;
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  font-family: Glida;
 }
 
-.sidebar{
-    transition: all .7s ease;
+body {
+  overflow-x: hidden;
+
+  background-color: rgb(221, 220, 220);
 }
 
+.sidebar {
+  transition: all 0.7s ease;
+}
 
 /* Match Details */
 .playing-xi-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 h2 {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .playing-xi-table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
 }
 
 .playing-xi-table th {
-    text-align: left;
-    font-size: 18px;
-    padding: 10px;
-    background-color: #f2f2f2;
+  text-align: left;
+  font-size: 18px;
+  padding: 10px;
+  background-color: #f2f2f2;
 }
 
 .playing-xi-table td {
-    text-align: left;
-    padding: 10px;
-    font-size: 16px;
-    border-bottom: 1px solid #ddd; /* Horizontal dividers only */
+  text-align: left;
+  padding: 10px;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd; /* Horizontal dividers only */
 }
 
 .playing-xi-table td:first-child {
-    padding-left: 0;
+  padding-left: 0;
 }
 
 .playing-xi-table td:last-child {
-    padding-right: 0;
+  padding-right: 0;
 }
 
 @media (max-width: 600px) {
-    .playing-xi-table th, 
-    .playing-xi-table td {
-        font-size: 14px;
-        padding: 8px;
-    }
+  .playing-xi-table th,
+  .playing-xi-table td {
+    font-size: 14px;
+    padding: 8px;
+  }
 }
 
 .blurred-bg {
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(50px); 
-    -webkit-backdrop-filter: blur(10px); 
-    border-radius: 10px;
-  }
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+}

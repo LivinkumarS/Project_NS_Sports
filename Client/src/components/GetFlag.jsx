@@ -36,7 +36,7 @@ export default function GetFlag({ country_code }) {
     <div>
       {teamFlag !== "WIN" ? (
         <div
-          className="w-20 h-auto shadow-lg mb-2"
+          className="w-20 h-auto  overflow-hidden shadow-lg mb-2"
           dangerouslySetInnerHTML={{ __html: teamFlag }}
         />
       ) : (

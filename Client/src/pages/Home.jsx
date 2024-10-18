@@ -74,7 +74,7 @@ const Home = () => {
                   <Link
                     to={`/live/${match.key}`}
                     key={index}
-                    className="text-black font-semibold p-2 px-3 bg-red-300 rounded-3xl text-xs lg:text-sm hover:bg-gray-300  whitespace-nowrap flex items-center gap-2"
+                    className="text-black font-semibold p-2 px-3 bg-blue-300 rounded-3xl text-xs lg:text-sm hover:bg-gray-300  whitespace-nowrap flex items-center gap-2"
                   >
                     {match.short_name}
                   </Link>
@@ -85,8 +85,8 @@ const Home = () => {
               <Link to={"/?tab=completed"} className="flex-1">
                 <button
                   className={`${
-                    key === "completed" ? "bg-red-300 " : "bg-white"
-                  } w-full text-sm sm:text-md p-2 rounded-xl hover:bg-red-300 cursor-pointer hover:text-white font-bold`}
+                    key === "completed" ? "bg-blue-300 " : "bg-white"
+                  } w-full text-sm sm:text-md p-2 rounded-xl hover:bg-blue-300 cursor-pointer hover:text-white font-bold`}
                 >
                   Completed
                 </button>
@@ -94,8 +94,8 @@ const Home = () => {
               <Link to={"/?tab=upcoming"} className="flex-1">
                 <button
                   className={`${
-                    key === "upcoming" ? "bg-red-300 " : "bg-white"
-                  } w-full text-sm sm:text-md p-2 rounded-xl hover:bg-red-300 cursor-pointer hover:text-white font-bold`}
+                    key === "upcoming" ? "bg-blue-300 " : "bg-white"
+                  } w-full text-sm sm:text-md p-2 rounded-xl hover:bg-blue-300 cursor-pointer hover:text-white font-bold`}
                 >
                   Upcoming
                 </button>
@@ -115,7 +115,7 @@ const Home = () => {
       </div>
       {/* News and Blogs */}
       <div className="mb-9 p-3 overflow-hidden flex flex-col bg-transparent gap-3 md:flex-row w-full rounded-lg max-w-[1200px] mx-auto">
-        <div className="flex-1 bg-white p-4 w-full">
+        <div className="flex-1 rounded-lg bg-white p-4 w-full">
           <div className="flex items-center justify-between mb-2">
             <h1 className="font-bold text-xl md:text-2xl">Latest News</h1>
             <Link
@@ -125,7 +125,8 @@ const Home = () => {
               See More
             </Link>
           </div>
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-0">
+          <br />
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0">
             <Link to="/">
               <NewsGlimp
                 image={
@@ -190,7 +191,7 @@ const Home = () => {
             </Link>
           </div>
         </div>
-        <div className=" w-full bg-white md:w-[300px] p-4">
+        <div className=" w-full rounded-lg bg-white md:w-[300px] p-4">
           <div className="flex items-center justify-between mb-2">
             <h1 className="font-bold text-lg md:text-xl">Latest Blogs</h1>
             <Link
@@ -200,6 +201,7 @@ const Home = () => {
               See More
             </Link>
           </div>
+          <br />
           <div className="w-full grid grid-cols-1 gap-0">
             <Link to={"/blog"}>
               <BlogGlimp
@@ -251,7 +253,7 @@ const Home = () => {
       </div>
       {/* Videos */}
 
-      <div className="w-full mb-6">
+      <div className="w-full max-w-[1200px] mx-auto p-3 mb-6">
         <VideoGlimp />
       </div>
 
