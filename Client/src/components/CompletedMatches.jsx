@@ -23,7 +23,7 @@ export default function CompletedMatches() {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          infinite: true,
+          infinite: false,
         },
       },
       {
@@ -31,7 +31,7 @@ export default function CompletedMatches() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          infinite: true,
+          infinite: false,
           dots:false,
         },
       },

@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import MatchDetails from "./components/MatchDetails";
+import MatchDetails from "./pages/MatchDetails";
 import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
+  const [sessStor, setSessStor] = useState(null);
   const fetchAccessToken = async () => {
     const projectKey = import.meta.env.VITE_PROJECT_KEY;
     const api_key = import.meta.env.VITE_API_KEY;
@@ -28,21 +29,24 @@ export default function App() {
     const data = await response.json();
     sessionStorage.clear();
     sessionStorage.setItem("access_token", data.data.token);
+    setSessStor(data.data.token);
   };
 
   fetchAccessToken();
 
   return (
-    <BrowserRouter>
-      <Header />
-      <ScrollToTop />
+    sessStor && (
+      <BrowserRouter>
+        <Header />
+        <ScrollToTop />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/match/:matchKey" element={<MatchDetails />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/match/:matchKey" element={<MatchDetails />} />
+        </Routes>
 
-      <Footer />
-    </BrowserRouter>
+        <Footer />
+      </BrowserRouter>
+    )
   );
 }

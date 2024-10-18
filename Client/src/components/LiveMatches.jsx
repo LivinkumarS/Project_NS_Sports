@@ -14,12 +14,32 @@ export default function LiveMatches() {
   const [loading, setLoading] = useState(true);
   
 
+  
   const settings = {
-    dots: false,
+    dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: false,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: false,
+          dots:false,
+        },
+      },
+    ],
   };
 
   const fetchFeaturedMatches = async () => {
@@ -55,9 +75,9 @@ export default function LiveMatches() {
 
   return (
     <>
-      <div className="w-full z-0">
+      <div className="w-[full] z-0 bg-[#0077b6] rounded-md">
         {loading ? (
-          <p>
+          <p className="text-white font-semibold p-5">
             Loading matches...{` `}
             <Spinner
               size="sm"
@@ -66,11 +86,13 @@ export default function LiveMatches() {
             />
           </p>
         ) : matches.length > 0 ? (
-          <div className="w-full mx-auto max-w-4xl p-3 sm:p-7 sm:px-10 rounded-lg bg-[#0077b6]">
+          <div className="w-full mx-auto p-3 sm:p-7 sm:px-10 rounded-lg">
             <Slider {...settings}>
               {
                 matches.map((mat,ind)=>(
-                  <LiveMatch matchKey={mat.key} key={ind}/>
+                  <Link to={`/live/${mat.key}`} key={ind} className="rounded-md flex w-fit h-[280px] overflow-y-auto sm:mx-4 flex-col gap-0 bg-white p-3 sm:gap-1 sm:p-0 items-center justify-center bg-transparent">
+                    <LiveMatch matchKey={mat.key}/>
+                  </Link>
                 ))
               }
             </Slider>

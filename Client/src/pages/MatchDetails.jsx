@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import GetFlag from "./GetFlag";
+import GetFlag from "../components/GetFlag";
 
 const MatchDetails = () => {
   const { matchKey } = useParams();
@@ -111,39 +111,7 @@ const MatchDetails = () => {
             <h2 className="font-bold">
                 Playing XI
             </h2>
-            {matchDetails.data.status !== "not_started"? (
-              <table className="playing-xi-table">
-                <thead>
-                  <tr>
-                    <th>{teamA}</th>
-                    <th>{teamB}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {matchDetails.data.status !== "not_started"
-                    ? matchDetails.data.squad[firstBat].playing_xi.map(
-                        (player, index) => (
-                          <tr key={index}>
-                            <td>
-                              {matchDetails.data.players[player].player.name}
-                            </td>
-                            {
-                              <td>
-                                {
-                                  matchDetails.data.players[
-                                    matchDetails.data.squad[secondBat]
-                                      .playing_xi[index]
-                                  ].player.name
-                                }
-                              </td>
-                            }
-                          </tr>
-                        )
-                      )
-                    : null}
-                </tbody>
-              </table>
-            ):(<p className="text-center font-semibold text-gray-500 text-sm">Not Released Yet...!</p>)}
+            
           </div>
         </div>
       ) : (

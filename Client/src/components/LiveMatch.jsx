@@ -51,9 +51,8 @@ export default function LiveMatch({ matchKey }) {
   }, []);
 
   return (
-    <div className="flex w-full flex-col gap-0 bg-white p-3 sm:gap-1 sm:p-0 h-full items-center justify-center bg-transparent">
-      {matchDetails && (
-        <div className="sm:p-5 py-5 w-full relative ">
+      matchDetails && (
+        <div className="sm:p-5 sm:py-8 py-5 w-full relative ">
           <h1 className="absolute top-0 left-0 sm:top-2 sm:left-2  text-xs sm:text-sm font-bold text-red-600 flex gap-1">
             Live Match{" "}
             <span className="mt-[3px]">
@@ -109,7 +108,6 @@ export default function LiveMatch({ matchKey }) {
             {matchDetails.data.venue.name}
           </h1>
         </div>
-      )}
-    </div>
+      )
   );
 }

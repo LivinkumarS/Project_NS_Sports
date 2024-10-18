@@ -3,6 +3,7 @@ import GetFlag from "./GetFlag";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { HR } from "flowbite-react";
 
 export default function CountryFlags() {
   const countries = [
@@ -27,7 +28,7 @@ export default function CountryFlags() {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 6,
+    slidesToShow: 8,
     slidesToScroll: 2,
     responsive: [
       {
@@ -52,13 +53,14 @@ export default function CountryFlags() {
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto bg-white h-fit ">
+    <div className="w-full mx-auto bg-white h-fit rounded-md">
       <h1 className="text-lg sm:text-xl font-bold text-center pt-2">
-        Country Flags
+        Series
       </h1>
+      <HR className="my-2 bg-black"/>
       <Slider {...settings} className="h-fit pt-5">
         {countries.map((coun, index) => (
-          <div className="w-fit mr-3 md:mx-3 " key={index}>
+          <div className="w-fit mx-3 md:mx-3 " key={index}>
             <GetFlag key={index} country_code={coun} />
             <h1 className="text-xs font-bold text-center w-20">{coun}</h1>
           </div>

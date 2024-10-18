@@ -8,6 +8,7 @@ import NewsGlimp from "../components/NewsGlimp";
 import BlogGlimp from "../components/BlogGlimp";
 import VideoGlimp from "../components/VideoGlimp";
 import CountryFlags from "../components/CountryFlags";
+import { HR } from "flowbite-react";
 
 const Home = () => {
   const location = useLocation();
@@ -102,7 +103,7 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <div className="container mx-auto  sm:p-4 h-fit">
+          <div className="w-full mx-auto  sm:p-4 h-fit">
             {!key ? (
               <LiveMatches />
             ) : key == "completed" ? (
@@ -116,7 +117,7 @@ const Home = () => {
       {/* News and Blogs */}
       <div className="mb-9 p-3 overflow-hidden flex flex-col bg-transparent gap-3 md:flex-row w-full rounded-lg max-w-[1200px] mx-auto">
         <div className="flex-1 rounded-lg bg-white p-4 w-full">
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center justify-between">
             <h1 className="font-bold text-xl md:text-2xl">Latest News</h1>
             <Link
               to={"/news"}
@@ -125,7 +126,7 @@ const Home = () => {
               See More
             </Link>
           </div>
-          <br />
+          <HR className="my-3 bg-black"/>
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0">
             <Link to="/">
               <NewsGlimp
@@ -201,6 +202,7 @@ const Home = () => {
               See More
             </Link>
           </div>
+          <HR className="my-3 mb-0 bg-black"/>
           <br />
           <div className="w-full grid grid-cols-1 gap-0">
             <Link to={"/blog"}>
@@ -258,7 +260,7 @@ const Home = () => {
       </div>
 
       {/* country flags */}
-      <div className="w-full">
+      <div className="w-full max-w-[1200px] mx-auto px-4">
         <CountryFlags />
       </div>
     </div>

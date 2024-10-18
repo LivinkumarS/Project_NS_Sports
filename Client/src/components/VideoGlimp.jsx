@@ -1,4 +1,6 @@
+import { HR } from "flowbite-react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function VideoGlimp() {
   const videos = [
@@ -30,7 +32,16 @@ export default function VideoGlimp() {
 
   return (
     <div className="w-full rounded-lg bg-white p-4 mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold text-center mb-8">Recent Videos</h2>
+      <div className="flex items-center justify-between">
+        <h2 className="text-3xl font-bold ">Recent Videos</h2>
+        <Link
+          to={`/videos`}
+          className="text-blue-600 hover:underline text-lg md:text-xl font-bold mb-3"
+        >
+          See More
+        </Link>
+      </div>
+      <HR className="my-3 bg-black" />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {videos.map((video, index) => (
           <div
@@ -39,14 +50,14 @@ export default function VideoGlimp() {
           >
             <div className="w-full h-full relative">
               <iframe
-                width="100%"   
-                height="225"   
+                width="100%"
+                height="225"
                 src={video.videoUrl}
                 title={video.title}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                className="rounded-t-lg" 
+                className="rounded-t-lg"
               ></iframe>
             </div>
           </div>
