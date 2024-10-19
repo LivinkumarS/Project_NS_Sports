@@ -65,7 +65,7 @@ const Home = () => {
               <Link to={"/"}>
                 <h1 className="text-2xl font-bold text-red-600 flex gap-1 mb-2 whitespace-nowrap">
                   Live Matches{" "}
-                  <span className="mt-2">
+                  <span className="mt-[4px]">
                     <GoDotFill />
                   </span>
                 </h1>

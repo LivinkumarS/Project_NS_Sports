@@ -3,16 +3,25 @@ import { Link, useLocation } from "react-router-dom";
 import { LuMenu } from "react-icons/lu";
 import { FaRegUserCircle, FaRegNewspaper } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
-import { Dropdown } from "flowbite-react";
+import { Button, Dropdown } from "flowbite-react";
 import { VscLiveShare } from "react-icons/vsc";
 import { AiOutlineSchedule, AiOutlineTeam } from "react-icons/ai";
 import { TfiCup } from "react-icons/tfi";
 import { MdOndemandVideo } from "react-icons/md";
 import { LiaBlogSolid } from "react-icons/lia";
+import { useDispatch, useSelector } from "react-redux";
+import { signoutSuccess } from "../redux/user/userSlice";
 
 export default function Header() {
   const [navState, setNavState] = useState(false);
   const location = useLocation;
+  const dispatch = useDispatch();
+  const { currentUser } = useSelector((state) => state.user);
+
+  function handleSignOut() {
+    dispatch(signoutSuccess());
+    localStorage.clear();
+  }
 
   return (
     <div className="sticky top-0 z-10 w-full px-[5%] xl:px-[10%] py-2 flex items-center justify-between bg-[#0077b6] text-white">
@@ -84,42 +93,70 @@ export default function Header() {
           </div>
         </Link>
         <div>
+        {currentUser ? (
           <Dropdown
             arrowIcon={false}
             inline
             label={
               <div className="mt-[2px] flex flex-col items-center justify-end hover:text-[#d62929] transition-all ease-linear">
-                <FaRegUserCircle className="text-xl" />
-                <p className="text-sm">Profile</p>
+                <img
+                  src={currentUser.profilePhoto}
+                  className="p-1  ring-gray-300 dark:ring-gray-500 rounded-full h-10 w-10"
+                  data-testid="flowbite-avatar-img"
+                ></img>
+                {/* <p className="text-sm">Profile</p> */}
               </div>
             }
           >
             <Dropdown.Header>
-              <span className="font-bold text-sm block">User Name</span>
-              <span className="text-sm">user@mail.com</span>
+              <span className="font-bold text-sm block">
+                {currentUser.username}
+              </span>
+              <span className="text-sm">{currentUser.email}</span>
             </Dropdown.Header>
-            <Dropdown.Item>Signout</Dropdown.Item>
+            <Dropdown.Item onClick={handleSignOut}>Signout</Dropdown.Item>
           </Dropdown>
+        ) : (
+          <Link to={"/sign-in"}>
+            <Button color="white" outline size="xs">
+              Sign In
+            </Button>
+          </Link>
+        )}
         </div>
       </nav>
 
       <div className="md:hidden flex gap-4 sm:gap-7 items-center">
-        <Dropdown
-          arrowIcon={false}
-          inline
-          label={
-            <div className="mt-[2px] flex flex-col items-center justify-end hover:text-[#d62929] transition-all ease-linear">
-              <FaRegUserCircle className="text-xl" />
-              <p className="text-sm">Profile</p>
-            </div>
-          }
-        >
-          <Dropdown.Header>
-            <span className="font-bold text-sm block">User Name</span>
-            <span className="text-sm">user@mail.com</span>
-          </Dropdown.Header>
-          <Dropdown.Item>Signout</Dropdown.Item>
-        </Dropdown>
+      {currentUser ? (
+          <Dropdown
+            arrowIcon={false}
+            inline
+            label={
+              <div className="mt-[2px] flex flex-col items-center justify-end hover:text-[#d62929] transition-all ease-linear">
+                <img
+                  src={currentUser.profilePhoto}
+                  className="p-1  ring-gray-300 dark:ring-gray-500 rounded-full h-10 w-10"
+                  data-testid="flowbite-avatar-img"
+                ></img>
+                {/* <p className="text-sm">Profile</p> */}
+              </div>
+            }
+          >
+            <Dropdown.Header>
+              <span className="font-bold text-sm block">
+                {currentUser.username}
+              </span>
+              <span className="text-sm">{currentUser.email}</span>
+            </Dropdown.Header>
+            <Dropdown.Item onClick={handleSignOut}>Signout</Dropdown.Item>
+          </Dropdown>
+        ) : (
+          <Link to={"/sign-in"}>
+            <Button color="white" outline size="xs">
+              Sign In
+            </Button>
+          </Link>
+        )}
         <LuMenu
           className="w-7 h-auto cursor-pointer md:hidden"
           onClick={() => {

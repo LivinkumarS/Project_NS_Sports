@@ -5,6 +5,8 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import MatchDetails from "./pages/MatchDetails";
 import ScrollToTop from "./components/ScrollToTop";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 
 export default function App() {
   const [sessStor, setSessStor] = useState(null);
@@ -42,6 +44,8 @@ export default function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/sign-up" element={<SignUp />} />
           <Route path="/match/:matchKey" element={<MatchDetails />} />
         </Routes>
 
