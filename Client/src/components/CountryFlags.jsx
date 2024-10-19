@@ -22,6 +22,7 @@ export default function CountryFlags() {
     "NLD",
     "NAM",
     "ARE",
+    "NPL"
   ];
 
   const settings = {
@@ -58,7 +59,7 @@ export default function CountryFlags() {
         Series
       </h1>
       <HR className="my-2 bg-black"/>
-      <Slider {...settings} className="h-fit pt-5">
+      <Slider {...settings} className="h-fit">
         {countries.map((coun, index) => (
           <div className="w-fit mx-3 md:mx-3 " key={index}>
             <GetFlag key={index} country_code={coun} />

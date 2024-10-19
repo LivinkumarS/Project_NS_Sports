@@ -90,7 +90,7 @@ export default function LiveMatches() {
             <Slider {...settings}>
               {
                 matches.map((mat,ind)=>(
-                  <Link to={`/live/${mat.key}`} key={ind} className="rounded-md flex w-fit h-[280px] overflow-y-auto sm:mx-4 flex-col gap-0 bg-white p-3 sm:gap-1 sm:p-0 items-center justify-center bg-transparent">
+                  <Link to={`/live/${mat.key}`} key={ind} className="rounded-md flex w-fit h-[300px] overflow-y-auto sm:mx-4 flex-col gap-0 bg-white p-3 sm:gap-1 sm:p-0 items-center justify-center bg-transparent">
                     <LiveMatch matchKey={mat.key}/>
                   </Link>
                 ))

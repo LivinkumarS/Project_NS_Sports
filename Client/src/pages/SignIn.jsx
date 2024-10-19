@@ -73,7 +73,11 @@ export default function SignIn() {
             />
           </Link>
           <p className="mt-4 font-semibold">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae aliquid deserunt cupiditate quaerat quia obcaecati illo eveniet dignissimos officiis accusantium. Quae voluptas animi dignissimos, vel error, sit quidem eligendi, repellendus doloremque eum quasi nostrum velit! Laudantium officiis dignissimos assumenda ipsa laborum magnam vel necessitatibus amet cum, iure dolor laboriosam facere?
+            <b className="font-bold text-lg">Welcome to NS Sports!</b> <br />
+            Log in to access live match scores, player stats, and match news.
+            Get real-time updates, engage with blogs, and enjoy a personalized
+            experience. Your data security is our priority. Sign in now to stay
+            connected with all the latest action!
           </p>
         </div>
         {/* right-side  */}
@@ -107,7 +111,7 @@ export default function SignIn() {
             >
               Submit
             </Button>
-            <Oath/>
+            <Oath />
             <div className="gap-2 flex">
               <span>Don't Have an account?</span>
               <Link className="text-blue-600" to="/sign-up">

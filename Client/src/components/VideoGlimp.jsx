@@ -33,10 +33,10 @@ export default function VideoGlimp() {
   return (
     <div className="w-full rounded-lg bg-white p-4 mx-auto px-4 py-8">
       <div className="flex items-center justify-between">
-        <h2 className="text-3xl font-bold ">Recent Videos</h2>
+        <h2 className="text-lg sm:text-3xl font-bold ">Recent Videos</h2>
         <Link
           to={`/videos`}
-          className="text-blue-600 hover:underline text-lg md:text-xl font-bold mb-3"
+          className="text-blue-600 hover:underline text-md sm:text-lg md:text-xl font-bold mb-3"
         >
           See More
         </Link>

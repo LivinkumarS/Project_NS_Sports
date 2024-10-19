@@ -36,14 +36,14 @@ export default function GetFlag({ country_code }) {
     <div>
       {teamFlag !== "WIN" ? (
         <div
-          className="w-20 h-auto  overflow-hidden shadow-lg mb-2"
+          className="w-20 h-24 overflow-hidden flex items-center justify-center"
           dangerouslySetInnerHTML={{ __html: teamFlag }}
         />
       ) : (
-        <img className="mb-2" src={`${wi}`} width="70" />
+        <div className="w-20 h-24 overflow-hidden flex items-center justify-center">
+          <img className="" src={`${wi}`} width="70" />
+        </div>
       )}
     </div>
   );
 }
-
-

@@ -4,11 +4,14 @@ import { Label, TextInput, Button, Alert } from "flowbite-react";
 import Oath from "../components/Oauth";
 
 export default function SignUp() {
-  const [formData, setFormData] = useState({email:'',username:'',password:''});
+  const [formData, setFormData] = useState({
+    email: "",
+    username: "",
+    password: "",
+  });
   const [isLoading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate=useNavigate();
-  
+  const navigate = useNavigate();
 
   async function handleSubmit(event) {
     setLoading(true);
@@ -30,14 +33,14 @@ export default function SignUp() {
       } else {
         setErrorMessage(null);
       }
-      if(res.ok){
-        navigate('/sign-in');
+      if (res.ok) {
+        navigate("/sign-in");
       }
     } catch (err) {
-      setErrorMessage(err.message)
+      setErrorMessage(err.message);
     }
     setLoading(false);
-    setFormData({email:'',username:'',password:''})
+    setFormData({ email: "", username: "", password: "" });
   }
 
   async function handleChange(event) {
@@ -56,7 +59,7 @@ export default function SignUp() {
       <div className="gap-5 flex p-3 max-w-4xl mx-auto flex-col md:flex-row md:items-center">
         {/* left-side  */}
         <div className="flex-1">
-        <Link to="/">
+          <Link to="/">
             <img
               src="/NS_logo.png"
               alt=""
@@ -64,7 +67,11 @@ export default function SignUp() {
             />
           </Link>
           <p className="mt-4 font-semibold">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo repellat, voluptates hic molestias laborum obcaecati exercitationem voluptatem soluta necessitatibus aliquam optio odit iure praesentium asperiores labore quidem odio impedit repudiandae illo ex officia explicabo nostrum. Illum quo explicabo rerum magni obcaecati nam, suscipit repellendus nisi harum deserunt quasi magnam beatae?
+            <b className="font-bold text-lg">Welcome to NS Sports!</b> <br />
+            Join NS Sports today! Create an account to follow live matches, post
+            blogs, and stay updated with match news and scores. Sign up now to
+            personalize your experience and never miss a moment of the action.
+            Be part of the sports community with just a few clicks! 
           </p>
         </div>
         {/* right-side  */}
@@ -108,8 +115,8 @@ export default function SignUp() {
             >
               Submit
             </Button>
-            <Oath/>
-            
+            <Oath />
+
             <div className="gap-2 flex">
               <span>Have an account?</span>
               <Link className="text-blue-600" to="/sign-in">
