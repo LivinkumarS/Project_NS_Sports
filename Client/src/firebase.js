@@ -11,7 +11,7 @@ const firebaseConfig = {
   projectId: "ns-sports",
   storageBucket: "ns-sports.appspot.com",
   messagingSenderId: "457911931192",
-  appId: "1:457911931192:web:c5a034e85c43af784d31cd",
+  appId: import.meta.env.VITE_OAUTH_APP_KEY,
   measurementId: "G-DC0PD3G5EZ",
 };
 
