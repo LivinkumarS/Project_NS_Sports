@@ -67,13 +67,13 @@ export default function SignIn() {
         <div className="flex-1">
           <Link to="/">
             <img
-              src="/NS_logo.png"
+              src="/NS_logo_blue.png"
               alt=""
-              className="bg-[#0077b6] rounded-lg w-[70px] sm:w-[100px] h-auto p-2"
+              className=" rounded-lg w-[70px] sm:w-[100px] h-auto p-2"
             />
           </Link>
-          <p className="mt-4 font-semibold">
-            <b className="font-bold text-lg">Welcome to NS Sports!</b> <br />
+          <p className="mt-4">
+            <h1 className="font-bold text-lg">Welcome to NS Sports!</h1>
             Log in to access live match scores, player stats, and match news.
             Get real-time updates, engage with blogs, and enjoy a personalized
             experience. Your data security is our priority. Sign in now to stay

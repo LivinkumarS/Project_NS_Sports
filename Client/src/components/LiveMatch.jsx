@@ -74,14 +74,14 @@ export default function LiveMatch({ matchKey }) {
                 {teamA}
               </h1>
               {matchDetails.data.play ? (
-                <p className="text-sm font-semibold">
+                <h6 className="text-sm font-semibold">
                   {matchDetails.data.play.innings[`${firstBat}_1`].score_str}
-                </p>
+                </h6>
               ) : (
-                <p className="text-sm font-semibold">Yet To Bat</p>
+                <h6 className="text-sm font-semibold">Yet To Bat</h6>
               )}
             </div>
-            <p className="w-fit h-fit">vs</p>
+            <h6 className="w-fit h-fit">vs</h6>
             <div className="flex-1 flex flex-col items-center justify-center gap-0">
               <GetFlag
                 country_code={matchDetails.data.teams[secondBat].country_code}
@@ -90,11 +90,11 @@ export default function LiveMatch({ matchKey }) {
                 {teamB}
               </h1>
               {matchDetails.data.play ? (
-                <p className="text-sm font-semibold">
+                <h6 className="text-sm font-semibold">
                   {matchDetails.data.play.innings[`${secondBat}_1`].score_str}
-                </p>
+                </h6>
               ) : (
-                <p className="text-sm font-semibold">Yet to Bat</p>
+                <h6 className="text-sm font-semibold">Yet to Bat</h6>
               )}
             </div>
           </div>

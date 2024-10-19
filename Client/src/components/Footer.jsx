@@ -149,12 +149,12 @@ export default function Footer() {
       </div>
 
       <div className="mt-10 border-t border-gray-700 pt-6 text-center text-gray-500 text-xs">
-        <p className="mb-2">
+        <h6 className="mb-2">
           <Link to="/terms">Terms of Use</Link> |{" "}
           <Link to="/privacy-policy">Privacy Policy</Link> |{" "}
           <Link to="/ads">Interest-Based Ads</Link> |{" "}
           <Link to="/feedback">Feedback</Link>
-        </p>
+        </h6>
         <p>
           © {new Date().getFullYear()} NS Sports All rights reserved.
         </p>

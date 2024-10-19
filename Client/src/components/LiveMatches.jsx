@@ -77,14 +77,14 @@ export default function LiveMatches() {
     <>
       <div className="w-[full] z-0 bg-[#0077b6] rounded-md">
         {loading ? (
-          <p className="text-white font-semibold p-5">
+          <h1 className="text-white font-semibold p-5">
             Loading matches...{` `}
             <Spinner
               size="sm"
               color="warning"
               aria-label="Warning spinner example"
             />
-          </p>
+          </h1>
         ) : matches.length > 0 ? (
           <div className="w-full mx-auto p-3 sm:p-7 sm:px-10 rounded-lg">
             <Slider {...settings}>

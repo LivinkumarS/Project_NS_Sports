@@ -1,6 +1,7 @@
 import { Button } from "flowbite-react";
 import React from "react";
 import { FaGoogle } from "react-icons/fa";
+import { FcGoogle } from 'react-icons/fc';
 import { GoogleAuthProvider, signInWithPopup, getAuth } from "firebase/auth";
 import { app } from "../firebase";
 import { useDispatch } from "react-redux";
@@ -42,16 +43,12 @@ export default function Oath() {
     }
   }
   return (
-    <Button
-      type="button"
-      className=" font-bold my-4 w-full bg-[#0077b6] relative "
-      outline
+    <button
       onClick={handleOuthClick}
+      className="flex items-center justify-center w-full mb-5 px-4 py-2 text-white bg-white border border-gray-300 rounded-lg shadow-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
     >
-      <span className="self-center mr-2">
-        <FaGoogle />
-      </span>
-      Google
-    </Button>
+      <FcGoogle className="w-6 h-6 mr-2" />
+      <span className="text-gray-700 font-semibold">Sign in with Google</span>
+    </button>
   );
 }

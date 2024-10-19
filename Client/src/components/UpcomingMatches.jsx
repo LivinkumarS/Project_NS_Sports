@@ -76,14 +76,14 @@ export default function UpcomingMatches() {
   return (
     <div className="w-full">
       {loading ? (
-        <p className="p-4">
+        <h6 className="p-4">
           Loading matches...{` `}
           <Spinner
             size="sm"
             color="warning"
             aria-label="Warning spinner example"
           />
-        </p>
+        </h6>
       ) : matches.length > 0 ? (
         <>
           <h1 className="text-lg sm:text-xl font-bold mb-4">
@@ -100,7 +100,7 @@ export default function UpcomingMatches() {
                     <div className="flex-1 w-2 flex flex-col items-center justify-center gap-0">
                       <GetFlag country_code={match.teams.a.country_code} />
                     </div>
-                    <p className="w-fit h-fit">vs</p>
+                    <h6 className="w-fit h-fit">vs</h6>
                     <div className="flex-1 w-2 flex flex-col items-center justify-center gap-0">
                       <GetFlag country_code={match.teams.b.country_code} />
                     </div>
@@ -115,17 +115,17 @@ export default function UpcomingMatches() {
                   <h2 className="text-md text-start m-0 font-bold">
                     {match.name}
                   </h2>
-                  <p>
+                  <h6>
                     <span className="font-bold">Venue: </span>
                     {match.venue.name}
-                  </p>
+                  </h6>
                 </div>
               </Link>
             ))}
           </Slider>
         </>
       ) : (
-        <p>No featured matches available.</p>
+        <h6>No featured matches available.</h6>
       )}
     </div>
   );

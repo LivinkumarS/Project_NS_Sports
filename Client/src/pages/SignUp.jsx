@@ -61,13 +61,13 @@ export default function SignUp() {
         <div className="flex-1">
           <Link to="/">
             <img
-              src="/NS_logo.png"
+              src="/NS_logo_blue.png"
               alt=""
-              className="bg-[#0077b6] rounded-lg w-[70px] sm:w-[100px] h-auto p-2"
+              className="rounded-lg w-[70px] sm:w-[100px] h-auto p-2"
             />
           </Link>
-          <p className="mt-4 font-semibold">
-            <b className="font-bold text-lg">Welcome to NS Sports!</b> <br />
+          <p className="mt-4">
+            <h1 className="font-bold text-lg">Welcome to NS Sports!</h1> 
             Join NS Sports today! Create an account to follow live matches, post
             blogs, and stay updated with match news and scores. Sign up now to
             personalize your experience and never miss a moment of the action.

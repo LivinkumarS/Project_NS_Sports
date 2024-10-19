@@ -37,7 +37,7 @@ export default function Header() {
         >
           <div className="flex flex-col items-center justify-end">
             <VscLiveShare className="text-xl" />
-            <p>Live Score</p>
+            <h6>Live Score</h6>
           </div>
         </Link>
         <Link
@@ -46,7 +46,7 @@ export default function Header() {
         >
           <div className="flex flex-col items-center justify-end">
             <AiOutlineSchedule className="text-xl" />
-            <p>Schedule</p>
+            <h6>Schedule</h6>
           </div>
         </Link>
         <Link
@@ -55,7 +55,7 @@ export default function Header() {
         >
           <div className="flex flex-col items-center justify-end">
             <TfiCup className="text-xl" />
-            <p>Series</p>
+            <h6>Series</h6>
           </div>
         </Link>
         <Link
@@ -64,7 +64,7 @@ export default function Header() {
         >
           <div className="flex flex-col items-center justify-end">
             <AiOutlineTeam className="text-xl" />
-            <p>Teams</p>
+            <h6>Teams</h6>
           </div>
         </Link>
         <Link
@@ -73,7 +73,7 @@ export default function Header() {
         >
           <div className="flex flex-col items-center justify-end">
             <FaRegNewspaper className="text-xl" />
-            <p>News</p>
+            <h6>News</h6>
           </div>
         </Link>
         <Link
@@ -82,7 +82,7 @@ export default function Header() {
         >
           <div className="flex flex-col items-center justify-end">
             <MdOndemandVideo className="text-xl" />
-            <p>Videos</p>
+            <h6>Videos</h6>
           </div>
         </Link>
         <Link
@@ -91,7 +91,7 @@ export default function Header() {
         >
           <div className="flex flex-col items-center justify-end">
             <LiaBlogSolid className="text-xl" />
-            <p>Blogs</p>
+            <h6>Blogs</h6>
           </div>
         </Link>
         <div>
@@ -106,7 +106,7 @@ export default function Header() {
                     className="p-1  ring-gray-300 dark:ring-gray-500 rounded-full h-10 w-10"
                     data-testid="flowbite-avatar-img"
                   ></img>
-                  {/* <p className="text-sm">Profile</p> */}
+                  {/* <h6 className="text-sm">Profile</h6> */}
                 </div>
               }
             >
@@ -140,7 +140,7 @@ export default function Header() {
                   className="p-1  ring-gray-300 dark:ring-gray-500 rounded-full h-10 w-10"
                   data-testid="flowbite-avatar-img"
                 ></img>
-                {/* <p className="text-sm">Profile</p> */}
+                {/* <h6 className="text-sm">Profile</h6> */}
               </div>
             }
           >
@@ -187,7 +187,7 @@ export default function Header() {
         >
           <div className="flex gap-3 items-center justify-end">
             <VscLiveShare className="text-xl" />
-            <p>Live Score</p>
+            <h6>Live Score</h6>
           </div>
         </Link>
         <Link
@@ -199,7 +199,7 @@ export default function Header() {
         >
           <div className="flex gap-3 items-center justify-end">
             <AiOutlineSchedule className="text-xl" />
-            <p>Schedule</p>
+            <h6>Schedule</h6>
           </div>
         </Link>
         <Link
@@ -211,7 +211,7 @@ export default function Header() {
         >
           <div className="flex gap-3 items-center justify-end">
             <TfiCup className="text-xl" />
-            <p>Series</p>
+            <h6>Series</h6>
           </div>
         </Link>
         <Link
@@ -223,7 +223,7 @@ export default function Header() {
         >
           <div className="flex gap-3 items-center justify-end">
             <AiOutlineTeam className="text-xl" />
-            <p>Teams</p>
+            <h6>Teams</h6>
           </div>
         </Link>
         <Link
@@ -235,7 +235,7 @@ export default function Header() {
         >
           <div className="flex gap-3 items-center justify-end">
             <FaRegNewspaper className="text-xl" />
-            <p>News</p>
+            <h6>News</h6>
           </div>
         </Link>
         <Link
@@ -247,7 +247,7 @@ export default function Header() {
         >
           <div className="flex gap-3 items-center justify-end">
             <MdOndemandVideo className="text-xl" />
-            <p>Videos</p>
+            <h6>Videos</h6>
           </div>
         </Link>
         <Link
@@ -259,7 +259,7 @@ export default function Header() {
         >
           <div className="flex gap-3 items-center justify-end">
             <LiaBlogSolid className="text-xl" />
-            <p>Blogs</p>
+            <h6>Blogs</h6>
           </div>
         </Link>
       </div>
