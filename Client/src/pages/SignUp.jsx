@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { json, Link, useNavigate } from "react-router-dom";
 import { Label, TextInput, Button, Alert } from "flowbite-react";
-// import Oath from "../components/Oath";
+import Oath from "../components/Oauth";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({email:'',username:'',password:''});
@@ -108,6 +108,8 @@ export default function SignUp() {
             >
               Submit
             </Button>
+            <Oath/>
+            
             <div className="gap-2 flex">
               <span>Have an account?</span>
               <Link className="text-blue-600" to="/sign-in">

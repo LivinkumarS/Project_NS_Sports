@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { LuMenu } from "react-icons/lu";
 import { FaRegUserCircle, FaRegNewspaper } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
@@ -16,11 +16,13 @@ export default function Header() {
   const [navState, setNavState] = useState(false);
   const location = useLocation;
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { currentUser } = useSelector((state) => state.user);
 
   function handleSignOut() {
     dispatch(signoutSuccess());
     localStorage.clear();
+    navigate("/");
   }
 
   return (
@@ -93,41 +95,41 @@ export default function Header() {
           </div>
         </Link>
         <div>
-        {currentUser ? (
-          <Dropdown
-            arrowIcon={false}
-            inline
-            label={
-              <div className="mt-[2px] flex flex-col items-center justify-end hover:text-[#d62929] transition-all ease-linear">
-                <img
-                  src={currentUser.profilePhoto}
-                  className="p-1  ring-gray-300 dark:ring-gray-500 rounded-full h-10 w-10"
-                  data-testid="flowbite-avatar-img"
-                ></img>
-                {/* <p className="text-sm">Profile</p> */}
-              </div>
-            }
-          >
-            <Dropdown.Header>
-              <span className="font-bold text-sm block">
-                {currentUser.username}
-              </span>
-              <span className="text-sm">{currentUser.email}</span>
-            </Dropdown.Header>
-            <Dropdown.Item onClick={handleSignOut}>Signout</Dropdown.Item>
-          </Dropdown>
-        ) : (
-          <Link to={"/sign-in"}>
-            <Button color="white" outline size="xs">
-              Sign In
-            </Button>
-          </Link>
-        )}
+          {currentUser ? (
+            <Dropdown
+              arrowIcon={false}
+              inline
+              label={
+                <div className="mt-[2px] flex flex-col items-center justify-end hover:text-[#d62929] transition-all ease-linear">
+                  <img
+                    src={currentUser.profilePhoto}
+                    className="p-1  ring-gray-300 dark:ring-gray-500 rounded-full h-10 w-10"
+                    data-testid="flowbite-avatar-img"
+                  ></img>
+                  {/* <p className="text-sm">Profile</p> */}
+                </div>
+              }
+            >
+              <Dropdown.Header>
+                <span className="font-bold text-sm block">
+                  {currentUser.username}
+                </span>
+                <span className="text-sm">{currentUser.email}</span>
+              </Dropdown.Header>
+              <Dropdown.Item onClick={handleSignOut}>Signout</Dropdown.Item>
+            </Dropdown>
+          ) : (
+            <Link to={"/sign-in"}>
+              <Button color="white" outline size="xs">
+                Sign In
+              </Button>
+            </Link>
+          )}
         </div>
       </nav>
 
       <div className="md:hidden flex gap-4 sm:gap-7 items-center">
-      {currentUser ? (
+        {currentUser ? (
           <Dropdown
             arrowIcon={false}
             inline

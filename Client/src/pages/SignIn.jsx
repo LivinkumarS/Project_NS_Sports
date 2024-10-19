@@ -7,7 +7,7 @@ import {
   signInSuccess,
   signInFailure,
 } from "../redux/user/userSlice";
-// import Oath from "../components/Oath";
+import Oath from "../components/Oauth";
 
 export default function SignIn() {
   const dispatch = useDispatch();
@@ -107,6 +107,7 @@ export default function SignIn() {
             >
               Submit
             </Button>
+            <Oath/>
             <div className="gap-2 flex">
               <span>Don't Have an account?</span>
               <Link className="text-blue-600" to="/sign-up">

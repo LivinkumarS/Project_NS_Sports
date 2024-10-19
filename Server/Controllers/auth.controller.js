@@ -75,7 +75,8 @@ export async function google(req, res, next) {
     if (googleUser) {
       const token = jwt.sign(
         { id: googleUser._id, isAdmin: googleUser.isAdmin },
-        process.env.AUTH_SECRET
+        process.env.JWT_SECRET,
+        { expiresIn: process.env.JWT_EXPIRES_IN }
       );
       const { password, ...rest } = googleUser._doc;
       res.status(200).json({ ...rest, token });
@@ -103,7 +104,8 @@ export async function google(req, res, next) {
         const { password, ...rest } = newUser._doc;
         const token = jwt.sign(
           { id: newUser._id, isAdmin: newUser.isAdmin },
-          process.env.AUTH_SECRET
+          process.env.JWT_SECRET,
+          { expiresIn: process.env.JWT_EXPIRES_IN }
         );
         res.status(200).json({ ...rest, token });
       } catch (err) {
