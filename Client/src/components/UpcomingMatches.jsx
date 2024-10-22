@@ -76,14 +76,14 @@ export default function UpcomingMatches() {
   return (
     <div className="w-full">
       {loading ? (
-        <h6 className="p-4">
+        <p className="p-4">
           Loading matches...{` `}
           <Spinner
             size="sm"
             color="warning"
             aria-label="Warning spinner example"
           />
-        </h6>
+        </p>
       ) : matches.length > 0 ? (
         <>
           <h1 className="text-lg sm:text-xl font-bold mb-4">
