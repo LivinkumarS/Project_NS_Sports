@@ -3,6 +3,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import GetFlag from "../components/GetFlag";
+import { Tabs } from "flowbite-react";
+import { HiAdjustments, HiClipboardList, HiUserCircle } from "react-icons/hi";
+import { MdDashboard } from "react-icons/md";
+import ScoreCard from "../components/ScoreCard";
 
 const MatchDetails = () => {
   const { matchKey } = useParams();
@@ -12,6 +16,11 @@ const MatchDetails = () => {
   const [firstBat, setFirstBat] = useState(null);
   const [secondBat, setSecondBat] = useState(null);
   const projectKey = import.meta.env.VITE_PROJECT_KEY;
+  const [activeTeamTab, setActiveTeamTab] = useState("teamA");
+
+  const handleTeamTabChange = (tab) => {
+    setActiveTeamTab(tab);
+  };
 
   const fetchMatchDetails = async () => {
     try {
@@ -25,25 +34,29 @@ const MatchDetails = () => {
         }
       );
       const data = await response.json();
-      setMatchDetails(data);
+      if (response.ok) {
+        setMatchDetails(data);
 
-      if (data.data.status !== "not_started") {
-        if (data.data.play.first_batting === "a") {
+        if (data.data.status !== "not_started") {
+          if (data.data.play.first_batting === "a") {
+            setTeamA(data.data.teams.a.name);
+            setTeamB(data.data.teams.b.name);
+            setFirstBat("a");
+            setSecondBat("b");
+          } else {
+            setTeamA(data.data.teams.b.name);
+            setTeamB(data.data.teams.a.name);
+            setFirstBat("b");
+            setSecondBat("a");
+          }
+        } else {
           setTeamA(data.data.teams.a.name);
           setTeamB(data.data.teams.b.name);
           setFirstBat("a");
           setSecondBat("b");
-        } else {
-          setTeamA(data.data.teams.b.name);
-          setTeamB(data.data.teams.a.name);
-          setFirstBat("b");
-          setSecondBat("a");
         }
       } else {
-        setTeamA(data.data.teams.a.name);
-        setTeamB(data.data.teams.b.name);
-        setFirstBat("a");
-        setSecondBat("b");
+        console.log(data);
       }
     } catch (error) {
       console.error("Error fetching match details:", error);
@@ -55,9 +68,9 @@ const MatchDetails = () => {
   }, [matchKey]);
 
   return (
-    <div className="min-h-[80vh] container mx-auto p-4">
+    <div className="min-h-[80vh] container mx-auto sm:p-4">
       {matchDetails ? (
-        <div className="bg-white rounded-lg shadow-lg w-full max-w-4xl m-[5%] mx-auto p-4 flex flex-col gap-1 items-center justify-center">
+        <div className="bg-white rounded-lg shadow-lg w-full max-w-4xl sm:m-[5%] sm:mx-auto p-4 flex flex-col gap-1 items-center justify-center">
           <p className="text-xs font-bold text-gray-500 self-start">
             {new Date(matchDetails.data.start_at * 1000).toLocaleString()}
           </p>
@@ -107,11 +120,36 @@ const MatchDetails = () => {
             {matchDetails.data.venue.name}
           </p>
 
-          <div className="playing-xi-container">
-            <h2 className="font-bold">
-                Playing XI
-            </h2>
-            
+          <div className="container mx-auto">
+            <div className="flex border-b border-gray-300">
+              <button
+                className={`flex-1 py-2 text-sm sm:text-md text-center font-semibold ${
+                  activeTeamTab === "teamA"
+                    ? "text-[#0077b6] border-b-2 border-[#0077b6]"
+                    : "text-gray-600"
+                }`}
+                onClick={() => handleTeamTabChange("teamA")}
+              >
+                {teamA}
+              </button>
+              <button
+                className={`flex-1 py-2 text-sm sm:text-md text-center font-semibold ${
+                  activeTeamTab === "teamB"
+                    ? "text-[#0077b6] border-b-2 border-[#0077b6]"
+                    : "text-gray-600"
+                }`}
+                onClick={() => handleTeamTabChange("teamB")}
+              >
+                {teamB}
+              </button>
+            </div>
+            <div className="w-full">
+              {activeTeamTab === "teamA" ? (
+                <ScoreCard mathDetail={matchDetails} team={"a"} />
+              ) : (
+                <ScoreCard mathDetail={matchDetails} team={"b"} />
+              )}
+            </div>
           </div>
         </div>
       ) : (

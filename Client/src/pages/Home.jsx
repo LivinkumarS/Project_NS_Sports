@@ -196,7 +196,7 @@ const Home = () => {
           <div className="flex items-center justify-between mb-2">
             <h1 className="font-bold text-lg md:text-xl">Latest Blogs</h1>
             <Link
-              to={"/blog"}
+              to={"/blogs"}
               className="text-blue-600 hover:underline font-semibold"
             >
               See More
@@ -205,7 +205,7 @@ const Home = () => {
           <HR className="my-3 mb-0 bg-black"/>
           <br />
           <div className="w-full grid grid-cols-1 gap-0">
-            <Link to={"/blog"}>
+            <Link to={"/blogs"}>
               <BlogGlimp
                 image={
                   "https://www.bjsports.live/wp-content/uploads/2024/08/Family-Friendly-Broadcast.webp"

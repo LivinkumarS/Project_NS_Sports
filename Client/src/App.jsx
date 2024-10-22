@@ -7,6 +7,9 @@ import MatchDetails from "./pages/MatchDetails";
 import ScrollToTop from "./components/ScrollToTop";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import Blog from "./pages/Blog";
+import News from "./pages/News";
+import Schedule from "./pages/Schedule";
 
 export default function App() {
   const [sessStor, setSessStor] = useState(null);
@@ -46,6 +49,9 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/blogs" element={<Blog />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/schedule" element={<Schedule />} />
           <Route path="/match/:matchKey" element={<MatchDetails />} />
         </Routes>
 

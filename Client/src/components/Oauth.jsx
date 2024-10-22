@@ -43,12 +43,12 @@ export default function Oath() {
     }
   }
   return (
-    <button
+    <div 
       onClick={handleOuthClick}
-      className="flex items-center justify-center w-full mb-5 px-4 py-2 text-white bg-white border border-gray-300 rounded-lg shadow-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+      className="cursor-pointer flex items-center justify-center w-full mb-5 px-4 py-2 text-white bg-white border border-gray-300 rounded-lg shadow-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
     >
       <FcGoogle className="w-6 h-6 mr-2" />
       <span className="text-gray-700 font-semibold">Sign in with Google</span>
-    </button>
+    </div>
   );
 }

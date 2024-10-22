@@ -45,7 +45,7 @@ export default function LiveMatch({ matchKey }) {
     fetchMatchDetails();
     const intervalId = setInterval(() => {
       fetchMatchDetails();
-    }, 15000);
+    }, 20000);
 
     return () => clearInterval(intervalId);
   }, []);
