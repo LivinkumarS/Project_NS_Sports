@@ -126,7 +126,7 @@ const Home = () => {
               See More
             </Link>
           </div>
-          <HR className="my-3 bg-black"/>
+          <HR className="my-3 bg-[#ddd]"/>
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0">
             <Link to="/">
               <NewsGlimp
@@ -202,7 +202,7 @@ const Home = () => {
               See More
             </Link>
           </div>
-          <HR className="my-3 mb-0 bg-black"/>
+          <HR className="my-3 mb-0 bg-[#ddd]"/>
           <br />
           <div className="w-full grid grid-cols-1 gap-0">
             <Link to={"/blogs"}>

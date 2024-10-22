@@ -25,7 +25,6 @@ export default function Schedule() {
       const data = await response.json();
       if (response.ok) {
         setTours(data);
-        console.log(tours);
       } else {
         console.log(data);
       }

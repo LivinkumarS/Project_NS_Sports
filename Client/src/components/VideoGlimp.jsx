@@ -41,7 +41,7 @@ export default function VideoGlimp() {
           See More
         </Link>
       </div>
-      <HR className="my-3 bg-black" />
+      <HR className="my-3 bg-[#ddd]" />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {videos.map((video, index) => (
           <div

@@ -3,9 +3,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import GetFlag from "../components/GetFlag";
-import { Tabs } from "flowbite-react";
-import { HiAdjustments, HiClipboardList, HiUserCircle } from "react-icons/hi";
-import { MdDashboard } from "react-icons/md";
 import ScoreCard from "../components/ScoreCard";
 
 const MatchDetails = () => {

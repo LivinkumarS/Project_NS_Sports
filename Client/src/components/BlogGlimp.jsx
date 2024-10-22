@@ -5,8 +5,8 @@ export default function BlogGlimp({ image, title, date }) {
     <div className="w-full gap-2 p-2 rounded-lg flex items-center justify-center">
       <img src={image} alt="" className="w-[100px]" />
       <div className="flex-1 flex flex-col items-start">
-        <h6 className="text-sm sm:text-md font-semibold">{title}</h6>
-        <h6 className="text-gray-500 text-xs">{date}</h6>
+        <p className="text-sm sm:text-md font-semibold">{title}</p>
+        <p className="text-gray-500 text-xs">{date}</p>
       </div>
     </div>
   );
