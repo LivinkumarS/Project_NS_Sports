@@ -33,7 +33,7 @@ export default function Header() {
       <nav className="font-semibold gap-4 md:gap-7 items-center justify-center hidden md:flex">
         <Link
           to="/live"
-          className="hover:text-[#d62929] transition-all ease-linear text-sm gap-1"
+          className="hover:text-[#90e0ef] transition-all ease-linear text-sm gap-1"
         >
           <div className="flex flex-col items-center justify-end">
             <VscLiveShare className="text-xl" />
@@ -42,7 +42,7 @@ export default function Header() {
         </Link>
         <Link
           to="/schedule"
-          className="hover:text-[#d62929] transition-all ease-linear text-sm gap-1"
+          className="hover:text-[#90e0ef] transition-all ease-linear text-sm gap-1"
         >
           <div className="flex flex-col items-center justify-end">
             <AiOutlineSchedule className="text-xl" />
@@ -51,7 +51,7 @@ export default function Header() {
         </Link>
         <Link
           to="/series"
-          className="hover:text-[#d62929] transition-all ease-linear text-sm gap-1"
+          className="hover:text-[#90e0ef] transition-all ease-linear text-sm gap-1"
         >
           <div className="flex flex-col items-center justify-end">
             <TfiCup className="text-xl" />
@@ -60,7 +60,7 @@ export default function Header() {
         </Link>
         <Link
           to="/teams"
-          className="hover:text-[#d62929] transition-all ease-linear text-sm gap-1"
+          className="hover:text-[#90e0ef] transition-all ease-linear text-sm gap-1"
         >
           <div className="flex flex-col items-center justify-end">
             <AiOutlineTeam className="text-xl" />
@@ -69,7 +69,7 @@ export default function Header() {
         </Link>
         <Link
           to="/news"
-          className="hover:text-[#d62929] transition-all ease-linear text-sm gap-1"
+          className="hover:text-[#90e0ef] transition-all ease-linear text-sm gap-1"
         >
           <div className="flex flex-col items-center justify-end">
             <FaRegNewspaper className="text-xl" />
@@ -78,7 +78,7 @@ export default function Header() {
         </Link>
         <Link
           to="/videos"
-          className="hover:text-[#d62929] transition-all ease-linear text-sm gap-1"
+          className="hover:text-[#90e0ef] transition-all ease-linear text-sm gap-1"
         >
           <div className="flex flex-col items-center justify-end">
             <MdOndemandVideo className="text-xl" />
@@ -87,7 +87,7 @@ export default function Header() {
         </Link>
         <Link
           to="/blogs"
-          className="hover:text-[#d62929] transition-all ease-linear text-sm gap-1"
+          className="hover:text-[#90e0ef] transition-all ease-linear text-sm gap-1"
         >
           <div className="flex flex-col items-center justify-end">
             <LiaBlogSolid className="text-xl" />

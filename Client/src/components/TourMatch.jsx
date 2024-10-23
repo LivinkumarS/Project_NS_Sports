@@ -54,7 +54,7 @@ export default function TourMatch({ matchKey }) {
       </td>
       <td className="px-6 py-4">
         <Link to={matchLink}>
-          {new Date(matchDetail.data.start_at * 1000).toLocaleDateString()}{" "}
+          {new Date(matchDetail.data.start_at * 1000).toDateString()}{" "}
           <br />
           {new Date(matchDetail.data.start_at * 1000).toLocaleTimeString()}
         </Link>

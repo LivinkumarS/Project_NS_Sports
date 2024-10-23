@@ -1,4 +1,6 @@
+import { Spinner } from "flowbite-react";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Series() {
   const [orderedTours, setOrderedTours] = useState(null);
@@ -7,7 +9,7 @@ export default function Series() {
   const groupTournamentsByMonth = (tournaments) => {
     return tournaments.reduce((acc, tournament) => {
       const startDate = new Date(tournament.start_date * 1000);
-      const month = startDate.toLocaleString("default", { month: "short" });
+      const month = startDate.toLocaleString("default", { month: "long" });
       const year = startDate.getFullYear();
       const monthYear = `${month}_${year}`;
 
@@ -38,8 +40,7 @@ export default function Series() {
         });
         const monthwise = groupTournamentsByMonth(sortedTours);
         setOrderedTours(monthwise);
-        console.log(orderedTours);
-        
+        console.log(monthwise);
       } else {
         console.log(data);
       }
@@ -54,23 +55,58 @@ export default function Series() {
 
   return (
     <div className="w-full min-h-[80vh]">
+      <h1 className="text-2xl font-bold my-6 text-center">
+          Series
+        </h1>
       <div className="w-full max-w-[1100px] mx-auto p-3">
         <table className="w-full">
-          <tbody>
-            {orderedTours &&
-              Object.keys(orderedTours).forEach((key) => {
-                <tr key={key}>
-                  <td>{key}</td>
-                  <td>
-                    {orderedTours[key].map((tour, ind) => (
-                      <div key={ind} className="text-xs">
-                        {tour.name}
-                      </div>
+          <thead className="bg-blue-300">
+            <tr>
+              <th className="p-3 border border-gray-400">
+                Month
+              </th>
+              <th className="p-3 border border-gray-400">
+                Series
+              </th>
+            </tr>
+          </thead>
+          {orderedTours?
+            Object.keys(orderedTours).map((monthKey) => (
+              <tbody key={monthKey}>
+                <tr>
+                  <td className="border border-gray-300 p-2 text-sm sm:text-lg font-bold align-top sm:p-4">
+                    {monthKey.replace('_'," ")}
+                  </td>
+                  <td className="border border-gray-300 p-2 sm:p-4">
+                    {orderedTours[monthKey].map((tournament) => (
+                      <Link to={`/tournament/${tournament.key}`} key={tournament.key}>
+                        <div className="mb-4">
+                          <p className="text-blue-500 text-sm sm:text-lg font-bold">
+                            {tournament.name}
+                          </p>
+                          <p>{" "}
+                            {new Date(
+                              tournament.start_date * 1000
+                            ).toDateString()}{" "}
+                            <span> - </span>
+                            {new Date(
+                              tournament.last_scheduled_match_date * 1000
+                            ).toDateString()}
+                          </p>
+                        </div>
+                      </Link>
                     ))}
                   </td>
-                </tr>;
-              })}
-          </tbody>
+                </tr>
+              </tbody>
+            )):<p className="font-semibold p-5">
+            Loading Series...{` `}
+            <Spinner
+              size="sm"
+              color="warning"
+              aria-label="Warning spinner example"
+            />
+          </p>}
         </table>
       </div>
     </div>

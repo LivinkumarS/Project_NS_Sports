@@ -71,7 +71,20 @@ export default function ScoreCard({ team, mathDetail }) {
                     ].batting_order.map((batsman, ind) => (
                       <tr key={ind}>
                         <td className="whitespace-nowrap px-4 py-2 border-b border-gray-300 font-semibold text-xs sm:text-md">
-                          {mathDetail.data.players[batsman].player.name}
+                          {mathDetail.data.players[batsman].player.name}{" "}
+                          {mathDetail.data.players[batsman].score[`${1}`]
+                            .batting.dismissal ? (
+                            <span className="text-gray-600">
+                              (
+                              {
+                                mathDetail.data.players[batsman].score[`${1}`]
+                                  .batting.dismissal.msg
+                              }
+                              )
+                            </span>
+                          ) : (
+                            <span className="text-gray-600">(notout)</span>
+                          )}
                         </td>
                         <td className="px-4 py-2 border-b border-gray-300 text-center text-xs sm:text-md">
                           {

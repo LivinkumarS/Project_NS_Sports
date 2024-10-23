@@ -11,6 +11,7 @@ import Blog from "./pages/Blog";
 import News from "./pages/News";
 import Schedule from "./pages/Schedule";
 import Series from "./pages/Series";
+import TourDetails from "./pages/TourDetails";
 
 export default function App() {
   const [sessStor, setSessStor] = useState(null);
@@ -55,6 +56,7 @@ export default function App() {
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/series" element={<Series />} />
           <Route path="/match/:matchKey" element={<MatchDetails />} />
+          <Route path="/tournament/:tourKey" element={<TourDetails />} />
         </Routes>
 
         <Footer />

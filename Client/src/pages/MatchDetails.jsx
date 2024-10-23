@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import GetFlag from "../components/GetFlag";
 import ScoreCard from "../components/ScoreCard";
+import { Spinner } from "flowbite-react";
 
 const MatchDetails = () => {
   const { matchKey } = useParams();
@@ -150,7 +151,14 @@ const MatchDetails = () => {
           </div>
         </div>
       ) : (
-        <p>Loading match details...</p>
+        <p className="font-semibold p-5">
+            Loading Match Details...{` `}
+            <Spinner
+              size="sm"
+              color="warning"
+              aria-label="Warning spinner example"
+            />
+          </p>
       )}
     </div>
   );

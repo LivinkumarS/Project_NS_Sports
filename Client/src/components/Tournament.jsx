@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TourMatch from "./TourMatch";
+import { Link } from "react-router-dom";
 
 export default function Tournament({ tourKey }) {
   const [tourDetail, setTourDetail] = useState(null);
@@ -33,9 +34,11 @@ export default function Tournament({ tourKey }) {
   return (
     tourDetail && (
       <div className="mb-1">
-        <h3 className="w-full px-6 py-3 text-sm sm:text-lg bg-blue-200 text-center">
-          {tourDetail.data.tournament.name}
-        </h3>
+        <Link to={`/tournament/${tourDetail.data.tournament.key}`}>
+          <h3 className="w-full px-6 py-3 text-sm sm:text-lg bg-blue-200 text-center">
+            {tourDetail.data.tournament.name}
+          </h3>
+        </Link>
 
         <table className="min-w-full text-sm text-left text-gray-500">
           <tbody>
