@@ -52,7 +52,7 @@ export default function LiveMatch({ matchKey }) {
 
   return (
       matchDetails && (
-        <div className="sm:p-5 sm:py-8 py-5 w-full relative ">
+        <div className="sm:p-5 sm:py-8 py-5 w-full rounded-lg bg-white relative ">
           <h1 className="absolute top-0 left-0 sm:top-2 sm:left-2  text-xs sm:text-sm font-bold text-red-600 flex gap-1">
             Live Match{" "}
             <span className="mt-[3px]">
@@ -61,6 +61,7 @@ export default function LiveMatch({ matchKey }) {
           </h1>
           <h1 className="text-center text-md sm:text-xl font-bold">
             {matchDetails.data.tournament.name}
+            <p className="text-gray-500 text-xs sm:text-sm">{matchDetails.data.sub_title} {matchDetails.data.format==="test" && (<span>Day: {matchDetails.data.play.day_number}</span>)}</p>
           </h1>
           <h1 className="text-center text-sm sm:text-md font-bold ">
             {matchDetails.data.name}

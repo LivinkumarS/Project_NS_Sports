@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-export default authenticateToken = (req, res, next) => {
+export default function authenticateToken(req, res, next){
   const token = req.headers["authorization"];
   if (!token) return res.status(401).json({ message: "No token provided" });
 

@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import AuthRoute from "./Routes/AuthRoute.js";
+import blogRoute from "./Routes/blogRoute.js"
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ app.listen(3000, () => {
 });
 
 app.use("/api/auth", AuthRoute);
+app.use("/api/blog", blogRoute);
 
 // Error Handling
 app.use((err, req, res, next) => {

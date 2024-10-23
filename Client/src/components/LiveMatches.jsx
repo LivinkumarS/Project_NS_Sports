@@ -12,15 +12,14 @@ export default function LiveMatches() {
   const [matches, setMatches] = useState([]);
   const projectKey = import.meta.env.VITE_PROJECT_KEY;
   const [loading, setLoading] = useState(true);
-  
+  const [slidesToShow, setSlidesToshow] = useState(1);
 
-  
   const settings = {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: slidesToShow,
+    slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 1024,
@@ -36,7 +35,7 @@ export default function LiveMatches() {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: false,
-          dots:false,
+          dots: false,
         },
       },
     ],
@@ -58,7 +57,11 @@ export default function LiveMatches() {
         const liveMatches = data.data.matches.filter((match) => {
           return match.status === "started";
         });
-
+        if (liveMatches.length > 2) {
+          setSlidesToshow(3);
+        } else {
+          setSlidesToshow(liveMatches.length);
+        }
         setMatches(liveMatches);
         setLoading(false);
       } else {
@@ -86,17 +89,13 @@ export default function LiveMatches() {
             />
           </h1>
         ) : matches.length > 0 ? (
-          <div className="w-full mx-auto p-3 sm:p-7 sm:px-10 rounded-lg">
-            <Slider {...settings}>
-              {
-                matches.map((mat,ind)=>(
-                  <Link to={`/live/${mat.key}`} key={ind} className="rounded-md flex w-fit h-[300px] overflow-y-auto sm:mx-4 flex-col gap-0 bg-white p-3 sm:gap-1 sm:p-0 items-center justify-center bg-transparent">
-                    <LiveMatch matchKey={mat.key}/>
-                  </Link>
-                ))
-              }
-            </Slider>
-          </div>
+          <Slider {...settings} className="w-full sm:m-0 bg-transparent p-3">
+            {matches.map((match) => (
+              <Link key={match.key} to={`/live/${match.key}`} className="lg:border-[10px] border-[#0077b6]">
+                <LiveMatch matchKey={match.key} />
+              </Link>
+            ))}
+          </Slider>
         ) : (
           <h1 className="text-lg text-gray-500 font-semibold">
             No Live Matches...!
