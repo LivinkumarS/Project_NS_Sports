@@ -36,6 +36,8 @@ export default function CreateBlog() {
       },
       (error) => {
         setErrorMessage("File Size Must Be Under 2MB");
+        console.log(error);
+        
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
@@ -82,8 +84,8 @@ export default function CreateBlog() {
   }
 
   return (
-    <div className="p-3 max-w-3xl min-h-screen mx-auto">
-      <h1 className="font-bold text-center my-7 text-3xl">Create Post</h1>
+    <div className="p-3 max-w-3xl min-h-[80vh] mx-auto">
+      <h1 className="font-bold text-center my-7 text-3xl">Create Blog</h1>
       <form className="flex flex-col gap-4">
         <div className="flex flex-col gap-4 sm:flex-row justify-between">
           <TextInput
@@ -96,7 +98,7 @@ export default function CreateBlog() {
             }}
           />
         </div>
-        <div className="flex flex-col sm:flex-row gap-4 justify-between border-2 border-dashed border-teal-500 p-3">
+        <div className="flex flex-col sm:flex-row gap-4 justify-between p-3">
           <FileInput
             type="file"
             accept="image/*"
@@ -107,7 +109,7 @@ export default function CreateBlog() {
           />
           <Button
             type="button"
-            color={"teal"}
+            color={"blue"}
             disabled={!imageFile || imageUploadingProgress}
             onClick={handleUploadImage}
           >
@@ -141,10 +143,9 @@ export default function CreateBlog() {
             setFormData({ ...formData, content: value });
           }}
         />
-        <Button
+        <button
           type="submit"
-          gradientDuoTone={"greenToBlue"}
-          className="w-100 mt-16 sm:mt-12 mb-12"
+          className="w-100 mt-16 sm:mt-12 mb-12 bg-[#0077b6] p-2 rounded-lg text-white"
           outline
           onClick={handlePostSubmit}
           disabled={
@@ -152,7 +153,7 @@ export default function CreateBlog() {
           }
         >
           Upload
-        </Button>
+        </button>
       </form>
       {errorMessage && (
         <Alert color={"red"} className="mt-4" icon={BiError}>
