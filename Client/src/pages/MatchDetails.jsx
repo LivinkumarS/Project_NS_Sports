@@ -15,6 +15,7 @@ const MatchDetails = () => {
   const [secondBat, setSecondBat] = useState(null);
   const projectKey = import.meta.env.VITE_PROJECT_KEY;
   const [activeTeamTab, setActiveTeamTab] = useState("teamA");
+  const apiURL = import.meta.env.VITE_API_URL;
 
   const handleTeamTabChange = (tab) => {
     setActiveTeamTab(tab);
@@ -23,12 +24,17 @@ const MatchDetails = () => {
   const fetchMatchDetails = async () => {
     try {
       const response = await fetch(
-        `/api/v5/cricket/${projectKey}/match/${matchKey}/`,
+        `${apiURL}/api/cricket/match`,
         {
-          method: "GET",
+          method: "POST",
           headers: {
-            "rs-token": sessionStorage.getItem("access_token"),
+            "Content-Type": "application/json",
           },
+          body: JSON.stringify({
+            matchKey: matchKey,
+            projectKey: projectKey,
+            access_token: sessionStorage.getItem("access_token"),
+          }),
         }
       );
       const data = await response.json();

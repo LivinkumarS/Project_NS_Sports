@@ -13,6 +13,7 @@ export default function LiveMatches() {
   const projectKey = import.meta.env.VITE_PROJECT_KEY;
   const [loading, setLoading] = useState(true);
   const [slidesToShow, setSlidesToshow] = useState(1);
+  const apiURL = import.meta.env.VITE_API_URL;
 
   const settings = {
     dots: true,
@@ -44,14 +45,19 @@ export default function LiveMatches() {
   const fetchFeaturedMatches = async () => {
     try {
       const response = await fetch(
-        `/api/v5/cricket/${projectKey}/featured-matches-2/`,
+        `${apiURL}/api/cricket/featured-matches-2`,
         {
-          method: "GET",
+          method: "POST",
           headers: {
-            "rs-token": sessionStorage.getItem("access_token"),
+            "Content-Type": "application/json",
           },
+          body: JSON.stringify({
+            projectKey: projectKey,
+            access_token: sessionStorage.getItem("access_token"),
+          }),
         }
       );
+      
       const data = await response.json();
       if (response.ok) {
         const liveMatches = data.data.matches.filter((match) => {

@@ -10,16 +10,21 @@ export default function Schedule() {
   const [odiList, setOdiList] = useState([]);
   const [testList, setTestList] = useState([]);
   const [femaleList, setFemaleList] = useState([]);
+  const apiURL = import.meta.env.VITE_API_URL;
 
   const fetchTourList = async () => {
     try {
       const response = await fetch(
-        `/api/v5/cricket/${projectKey}/featured-tournaments/`,
+        `${apiURL}/api/cricket/featured-tournaments`,
         {
-          method: "GET",
+          method: "POST",
           headers: {
-            "rs-token": sessionStorage.getItem("access_token"),
+            "Content-Type": "application/json",
           },
+          body: JSON.stringify({
+            projectKey: projectKey,
+            access_token: sessionStorage.getItem("access_token"),
+          }),
         }
       );
       const data = await response.json();

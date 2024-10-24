@@ -21,6 +21,7 @@ export default function CreateBlog() {
   const [imageFileURL, setImageFileURL] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
   const token = localStorage.getItem("access_token");
+  const apiURL = import.meta.env.VITE_API_URL;
 
   async function handleUploadImage() {
     const storage = getStorage(app);
@@ -63,7 +64,7 @@ export default function CreateBlog() {
     }
 
     try {
-      const res = await fetch("/server/api/blog/create", {
+      const res = await fetch(`${apiURL}/api/blog/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

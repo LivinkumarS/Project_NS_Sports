@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 export default function Series() {
   const [orderedTours, setOrderedTours] = useState(null);
   const projectKey = import.meta.env.VITE_PROJECT_KEY;
+  const apiURL = import.meta.env.VITE_API_URL;
 
   const groupTournamentsByMonth = (tournaments) => {
     return tournaments.reduce((acc, tournament) => {
@@ -25,12 +26,16 @@ export default function Series() {
   const fetchTourList = async () => {
     try {
       const response = await fetch(
-        `/api/v5/cricket/${projectKey}/featured-tournaments/`,
+        `${apiURL}/api/cricket/featured-tournaments`,
         {
-          method: "GET",
+          method: "POST",
           headers: {
-            "rs-token": sessionStorage.getItem("access_token"),
+            "Content-Type": "application/json",
           },
+          body: JSON.stringify({
+            projectKey: projectKey,
+            access_token: sessionStorage.getItem("access_token"),
+          }),
         }
       );
       const data = await response.json();

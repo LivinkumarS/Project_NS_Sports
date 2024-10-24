@@ -12,6 +12,7 @@ export default function SignUp() {
   const [isLoading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const navigate = useNavigate();
+  const apiURL = import.meta.env.VITE_API_URL;
 
   async function handleSubmit(event) {
     setLoading(true);
@@ -22,7 +23,7 @@ export default function SignUp() {
       return;
     }
     try {
-      const res = await fetch("/server/api/auth/signup", {
+      const res = await fetch(`${apiURL}/api/auth/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

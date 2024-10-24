@@ -5,16 +5,22 @@ import { Link } from "react-router-dom";
 export default function Tournament({ tourKey }) {
   const [tourDetail, setTourDetail] = useState(null);
   const projectKey = import.meta.env.VITE_PROJECT_KEY;
+  const apiURL = import.meta.env.VITE_API_URL;
 
   const fetchTourDetails = async () => {
     try {
       const response = await fetch(
-        `/api/v5/cricket/${projectKey}/tournament/${tourKey}/`,
+        `${apiURL}/api/cricket/tournament`,
         {
-          method: "GET",
+          method: "POST",
           headers: {
-            "rs-token": sessionStorage.getItem("access_token"),
+            "Content-Type": "application/json",
           },
+          body: JSON.stringify({
+            tourKey: tourKey,
+            projectKey: projectKey,
+            access_token: sessionStorage.getItem("access_token"),
+          }),
         }
       );
       const data = await response.json();

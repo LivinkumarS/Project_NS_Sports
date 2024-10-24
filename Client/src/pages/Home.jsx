@@ -15,17 +15,22 @@ const Home = () => {
   const projectKey = import.meta.env.VITE_PROJECT_KEY;
   const [key, setKey] = useState(null);
   const [liveMatches, setLiveMatches] = useState([]);
+  const apiURL = import.meta.env.VITE_API_URL;
   
 
   const fetchFeaturedMatches = async () => {
     try {
       const response = await fetch(
-        `/api/v5/cricket/${projectKey}/featured-matches-2/`,
+        `${apiURL}/api/cricket/featured-matches-2`,
         {
-          method: "GET",
+          method: "POST",
           headers: {
-            "rs-token": sessionStorage.getItem("access_token"),
+            "Content-Type": "application/json",
           },
+          body: JSON.stringify({
+            projectKey: projectKey,
+            access_token: sessionStorage.getItem("access_token"),
+          }),
         }
       );
       const data = await response.json();
@@ -57,7 +62,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="w-full px-5 min-h-[80vh]">
+    <div className="w-full px-3 sm:px-5 min-h-[80vh]">
       <div className="sm:mt-4 flex w-full flex-col gap-3 sm:gap-0 sm:items-start justify-center items-center sm:flex-row ">
         <div className="w-full mb-8">
           <div className="w-full flex flex-col sm:flex-row items-center justify-between">

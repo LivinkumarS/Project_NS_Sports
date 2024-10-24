@@ -9,14 +9,20 @@ export default function TourDetails() {
   const projectKey = import.meta.env.VITE_PROJECT_KEY;
 
   const fetchTourDetails = async () => {
+    const apiURL = import.meta.env.VITE_API_URL;
     try {
       const response = await fetch(
-        `/api/v5/cricket/${projectKey}/tournament/${tourKey}/fixtures/`,
+        `${apiURL}/api/cricket/tournament-fixtures`,
         {
-          method: "GET",
+          method: "POST",
           headers: {
-            "rs-token": sessionStorage.getItem("access_token"),
+            "Content-Type": "application/json",
           },
+          body: JSON.stringify({
+            projectKey: projectKey,
+            access_token: sessionStorage.getItem("access_token"),
+            tourKey: tourKey,
+          }),
         }
       );
       const data = await response.json();
@@ -104,13 +110,13 @@ export default function TourDetails() {
         </div>
       ) : (
         <p className="font-semibold p-5">
-            Loading Tour Details...{` `}
-            <Spinner
-              size="sm"
-              color="warning"
-              aria-label="Warning spinner example"
-            />
-          </p>
+          Loading Tour Details...{` `}
+          <Spinner
+            size="sm"
+            color="warning"
+            aria-label="Warning spinner example"
+          />
+        </p>
       )}
     </div>
   );

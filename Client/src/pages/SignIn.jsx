@@ -14,6 +14,7 @@ export default function SignIn() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const { loading, error: errorMessage } = useSelector((state) => state.user);
   const navigate = useNavigate();
+  const apiURL = import.meta.env.VITE_API_URL;
 
   function handleChange(e) {
     const trigger = e.target;
@@ -38,7 +39,7 @@ export default function SignIn() {
     }
 
     try {
-      const res = await fetch("/server/api/auth/signin", {
+      const res = await fetch(`${apiURL}/api/auth/signin`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...formData }),

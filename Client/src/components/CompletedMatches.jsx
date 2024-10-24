@@ -10,6 +10,7 @@ export default function CompletedMatches() {
   const [matches, setMatches] = useState([]);
   const projectKey = import.meta.env.VITE_PROJECT_KEY;
   const [loading, setLoading] = useState(true);
+  const apiURL = import.meta.env.VITE_API_URL;
 
   const settings = {
     dots: true,
@@ -32,7 +33,7 @@ export default function CompletedMatches() {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: false,
-          dots:false,
+          dots: false,
         },
       },
     ],
@@ -41,12 +42,16 @@ export default function CompletedMatches() {
   const fetchFeaturedMatches = async () => {
     try {
       const response = await fetch(
-        `/api/v5/cricket/${projectKey}/featured-matches-2/`,
+        `${apiURL}/api/cricket/featured-matches-2`,
         {
-          method: "GET",
+          method: "POST",
           headers: {
-            "rs-token": sessionStorage.getItem("access_token"),
+            "Content-Type": "application/json",
           },
+          body: JSON.stringify({
+            projectKey: projectKey,
+            access_token: sessionStorage.getItem("access_token"),
+          }),
         }
       );
       const data = await response.json();

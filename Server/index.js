@@ -3,10 +3,11 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import AuthRoute from "./Routes/AuthRoute.js";
-import blogRoute from "./Routes/blogRoute.js"
+import blogRoute from "./Routes/blogRoute.js";
+import fetch from "node-fetch";
+import CricketRoute from "./Routes/CricketRoute.js";
 
 dotenv.config();
-
 const app = express();
 
 mongoose
@@ -28,6 +29,7 @@ app.listen(3000, () => {
 
 app.use("/api/auth", AuthRoute);
 app.use("/api/blog", blogRoute);
+app.use("/api/cricket", CricketRoute);
 
 // Error Handling
 app.use((err, req, res, next) => {
