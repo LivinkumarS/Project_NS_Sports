@@ -32,12 +32,8 @@ app.listen(3000, () => {
   console.log("Listening On 3000!");
 });
 
-const __dirname = path.resolve();
-
-app.use(express.static(path.join(__dirname, "/Client/dist")));
-
-app.use("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "Client", "dist", "index.html"));
+app.get("/", (req, res) => {
+  res.send("Hello from Vercel");
 });
 
 app.use("/api/auth", AuthRoute);
