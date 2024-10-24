@@ -4,7 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import AuthRoute from "./Routes/AuthRoute.js";
 import blogRoute from "./Routes/blogRoute.js";
-import fetch from "node-fetch";
+import path from "path";
 import CricketRoute from "./Routes/CricketRoute.js";
 
 dotenv.config();
@@ -30,6 +30,14 @@ app.use(express.json());
 
 app.listen(3000, () => {
   console.log("Listening On 3000!");
+});
+
+const __dirname = path.resolve();
+
+app.use(express.static(path.join(__dirname, "/Client/dist")));
+
+app.use("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "Client", "dist", "index.html"));
 });
 
 app.use("/api/auth", AuthRoute);
