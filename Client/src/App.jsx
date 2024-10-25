@@ -69,14 +69,16 @@ export default function App() {
           </Route>
         </Routes>
       ) : (
-        <h1 className="font-semibold p-5">
-          Loading matches...{` `}
-          <Spinner
-            size="sm"
-            color="warning"
-            aria-label="Warning spinner example"
-          />
-        </h1>
+        <div className="lg:min-h-[80vh]">
+          <h1 className="font-semibold p-5">
+            Loading matches...{` `}
+            <Spinner
+              size="sm"
+              color="warning"
+              aria-label="Warning spinner example"
+            />
+          </h1>
+        </div>
       )}
       <Footer />
     </BrowserRouter>
