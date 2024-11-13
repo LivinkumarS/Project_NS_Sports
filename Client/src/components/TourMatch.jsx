@@ -20,7 +20,6 @@ export default function TourMatch({ matchKey }) {
           body: JSON.stringify({
             matchKey: matchKey,
             projectKey: projectKey,
-            access_token: sessionStorage.getItem("access_token"),
           }),
         }
       );

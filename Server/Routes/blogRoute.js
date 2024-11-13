@@ -1,5 +1,5 @@
 import express from "express";
-import verifyUser from "../Utils/authenticateUser.js"
+import verifyUser from "../Utils/authenticateUser.js";
 import {
   createBlog,
   getBlog,
@@ -9,7 +9,7 @@ import {
 const router = express.Router();
 
 router.get("/getblogs", getAllBlogs);
-router.get("/getblog/:blogId", getBlog);
+router.get("/getblog/:slug", getBlog);
 router.post("/create", verifyUser, createBlog);
 router.delete("/deleteblog/:blogId/:userId", verifyUser, deleteBlog);
 

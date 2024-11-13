@@ -24,39 +24,45 @@ export const createBlog = async (req, res, next) => {
 
 export const getAllBlogs = async (req, res, next) => {
   try {
-    const startIndex = req.query.startIndex || 0;
-    const limit = req.query.limit || 9;
+    const currentPage = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 9;
+    const startIndex = (currentPage - 1) * limit;
     const sortDirection = req.query.order === "asc" ? 1 : -1;
 
-    const posts = await Post.find({
-      ...(req.query.userId && { userId: req.query.userId }),
-      ...(req.query.category && { category: req.query.category }),
-      ...(req.query.postId && { _id: req.query.postId }),
-      ...(req.query.slug && { slug: req.query.slug }),
-      ...(req.query.searchTerm && {
+    const filterQuery = {
+      ...(req.query.search && {
         $or: [
-          { title: { $regex: req.query.searchTerm, $options: "i" } },
-          { content: { $regex: req.query.searchTerm, $options: "i" } },
+          { title: { $regex: req.query.search, $options: "i" } },
+          { content: { $regex: req.query.search, $options: "i" } },
         ],
       }),
-    })
+      ...(req.query.author && {
+        authorName: { $regex: req.query.author, $options: "i" },
+      }),
+    };
+
+    const posts = await Post.find(filterQuery)
       .sort({ updatedAt: sortDirection })
       .skip(startIndex)
       .limit(limit);
 
-    const totalPosts = await Post.countDocuments();
+    const totalPosts = await Post.countDocuments(filterQuery);
 
     const lastMonthDate = new Date(
-      new Date().getFullYear(),
-      new Date().getMonth() - 1,
-      new Date().getDate()
+      new Date().setMonth(new Date().getMonth() - 1)
     );
-
     const lastMonthPosts = await Post.countDocuments({
       updatedAt: { $gte: lastMonthDate },
     });
 
-    res.status(200).json({ posts, totalPosts, lastMonthPosts });
+    const totalPages = Math.ceil(totalPosts / limit);
+
+    res.status(200).json({
+      posts,
+      totalPosts,
+      totalPages,
+      lastMonthPosts,
+    });
   } catch (error) {
     next(errorHandler(400, error.message));
   }
@@ -80,15 +86,15 @@ export const deleteBlog = async (req, res, next) => {
 };
 
 export const getBlog = async (req, res, next) => {
-  if (!req.user) {
-    return next(400, "You Are Not Verified!");
-  }
-
+  const { slug } = req.params;
   try {
-    const post = await Post.findById(req.params.postId);
+    const post = await Post.findOne({ slug });
 
-    res.status(200).json({ hi: "post" });
+    if (!post) {
+      return res.status(404).json({ message: "Blog post not found" });
+    }
+    res.status(200).json(post);
   } catch (error) {
-    console.log(error.message);
+    next(errorHandler(400, "You Are Not Verified!"));
   }
 };

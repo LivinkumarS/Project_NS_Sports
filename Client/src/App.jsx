@@ -16,6 +16,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import CreateBlog from "./pages/createBlog";
 import LiveMatchPage from "./pages/LiveMatchPage";
 import { Spinner } from "flowbite-react";
+import BlogPost from "./pages/BlogPost";
 
 export default function App() {
   const [sessStor, setSessStor] = useState(null);
@@ -64,6 +65,7 @@ export default function App() {
           <Route path="/tournament/:tourKey" element={<TourDetails />} />
           <Route path="/live/:matchKey" element={<LiveMatchPage />} />
           <Route path="/live" element={<LiveMatchPage />} />
+          <Route path="/blog-post/:slug" element={<BlogPost />} />
           <Route element={<PrivateRoute />}>
             <Route path="/createBlog" element={<CreateBlog />} />
           </Route>
@@ -71,7 +73,7 @@ export default function App() {
       ) : (
         <div className="lg:min-h-[80vh]">
           <h1 className="font-semibold p-5">
-            Loading matches...{` `}
+            Loading...{` `}
             <Spinner
               size="sm"
               color="warning"

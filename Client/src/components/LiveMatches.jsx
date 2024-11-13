@@ -84,7 +84,7 @@ export default function LiveMatches() {
 
   return (
     <>
-      <div className="w-[full] z-0 bg-[#0077b6] rounded-md">
+      <div className="w-[full] z-0 bg-[#0077b6] p-4 rounded-md">
         {loading ? (
           <h1 className="text-white font-semibold p-5">
             Loading matches...{` `}
@@ -103,7 +103,7 @@ export default function LiveMatches() {
             ))}
           </Slider>
         ) : (
-          <h1 className="text-lg text-gray-500 font-semibold">
+          <h1 className="text-lg text-white font-semibold">
             No Live Matches...!
           </h1>
         )}
