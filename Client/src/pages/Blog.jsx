@@ -80,8 +80,8 @@ export default function Blog() {
         <div className="text-center text-xl">Loading...</div>
       ) : (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {posts.map((post) => (
+          <div className="grid min-h-[40vh] grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {posts.length>0?posts.map((post) => (
               <Link
                 to={`/blog-post/${post.slug}`}
                 key={post.id}
@@ -100,15 +100,12 @@ export default function Blog() {
                     {new Date(post.updatedAt).toLocaleDateString()} •{" "}
                     {post.authorName}
                   </p>
-                  <Link
-                    to={`/blog-post/${post.slug}`}
-                    className="text-blue-500 hover:text-blue-700 font-medium"
-                  >
+                  <span className="text-blue-500 hover:text-blue-700 font-medium">
                     Read More
-                  </Link>
+                  </span>
                 </div>
               </Link>
-            ))}
+            )):(<p className="text-2xl">{`No Posts...Sorry :(`}</p>)}
           </div>
 
           <div className="flex justify-center items-center mt-6">

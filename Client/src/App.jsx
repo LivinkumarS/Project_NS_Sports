@@ -66,9 +66,8 @@ export default function App() {
           <Route path="/live/:matchKey" element={<LiveMatchPage />} />
           <Route path="/live" element={<LiveMatchPage />} />
           <Route path="/blog-post/:slug" element={<BlogPost />} />
-          <Route element={<PrivateRoute />}>
-            <Route path="/createBlog" element={<CreateBlog />} />
-          </Route>
+          <Route path="/createBlog" element={<CreateBlog />} />
+          <Route element={<PrivateRoute />}></Route>
         </Routes>
       ) : (
         <div className="lg:min-h-[80vh]">

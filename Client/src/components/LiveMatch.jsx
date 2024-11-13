@@ -77,7 +77,7 @@ export default function LiveMatch({ matchKey }) {
         <h1 className="text-center text-sm sm:text-md font-bold ">
           {matchDetails.data.name}
         </h1>
-        <div className="w-full flex items-stretch justify-center p-3">
+        <div className="w-full flex items-center justify-center p-3">
           <div className="flex-1 flex flex-col items-center justify-center gap-0">
             <GetFlag
               country_code={matchDetails.data.teams[firstBat].country_code}

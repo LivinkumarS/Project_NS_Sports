@@ -2,9 +2,9 @@ import Post from "../Models/blog.model.js";
 import { errorHandler } from "../Utils/error.js";
 
 export const createBlog = async (req, res, next) => {
-  if (!req.user.isAdmin) {
-    return next(errorHandler(401, "Admin Only Can Post..!"));
-  }
+  // if (!req.user.isAdmin) {
+  //   return next(errorHandler(401, "Admin Only Can Post..!"));
+  // }
   if (!req.body.title || !req.body.content) {
     return next(errorHandler(401, "All Fields Are Required..1"));
   }
