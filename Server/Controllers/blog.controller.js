@@ -1,4 +1,5 @@
 import Post from "../Models/blog.model.js";
+import { RequestBlog } from "../Models/blog.model.js";
 import { errorHandler } from "../Utils/error.js";
 
 export const createBlog = async (req, res, next) => {
@@ -9,16 +10,32 @@ export const createBlog = async (req, res, next) => {
     return next(errorHandler(401, "All Fields Are Required..1"));
   }
   const slug = req.body.title.replace(" ", "-").replace(/[^a-zA-Z0-9-]/g, "-");
-  const newPost = new Post({
-    ...req.body,
-    slug,
-    userId: req.user.id,
-  });
-  try {
-    const savedPost = await newPost.save();
-    res.status(200).json(savedPost);
-  } catch (error) {
-    next(errorHandler(402, error.message));
+  if (req.user.isAdmin) {
+    const newPost = new Post({
+      ...req.body,
+      slug,
+      userId: req.user.id,
+    });
+    try {
+      const savedPost = await newPost.save();
+      res.status(200).json(savedPost);
+    } catch (error) {
+      next(errorHandler(402, error.message));
+    }
+  } else {
+    const newPost = new RequestBlog({
+      ...req.body,
+      slug,
+      userId: req.user.id,
+    });
+    try {
+      const savedPost = await newPost.save();
+      res
+        .status(200)
+        .json({ message: "Request Sent Successfully!", ...savedPost });
+    } catch (error) {
+      next(errorHandler(402, error.message));
+    }
   }
 };
 

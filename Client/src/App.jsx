@@ -17,6 +17,8 @@ import CreateBlog from "./pages/createBlog";
 import LiveMatchPage from "./pages/LiveMatchPage";
 import { Spinner } from "flowbite-react";
 import BlogPost from "./pages/BlogPost";
+import AdminPage from "./pages/AdminPage";
+import BlogRequest from "./pages/BlogRequest";
 
 export default function App() {
   const [sessStor, setSessStor] = useState(null);
@@ -67,7 +69,10 @@ export default function App() {
           <Route path="/live" element={<LiveMatchPage />} />
           <Route path="/blog-post/:slug" element={<BlogPost />} />
           <Route path="/createBlog" element={<CreateBlog />} />
-          <Route element={<PrivateRoute />}></Route>
+          <Route path="/blog-request" element={<BlogRequest />} />
+          <Route element={<PrivateRoute />}>
+            <Route path="/admin-page" element={<AdminPage />} />
+          </Route>
         </Routes>
       ) : (
         <div className="lg:min-h-[80vh]">

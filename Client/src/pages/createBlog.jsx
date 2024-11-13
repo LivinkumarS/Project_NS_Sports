@@ -35,7 +35,8 @@ export default function CreatePost() {
     uploadTask.on(
       "state_changed",
       (snapshot) => {
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         setImageUploadingProgress(progress.toFixed(0));
       },
       (error) => {
@@ -75,7 +76,11 @@ export default function CreatePost() {
 
       const response = await res.json();
       if (res.ok) {
-        navigate(`/blog-post/${response.slug}`);
+        if (currentUser.isAdmin) {
+          navigate(`/blog-post/${response.slug}`);
+        } else {
+          navigate(`/blog-request`);
+        }
       } else {
         setErrorMessage(response.message);
       }

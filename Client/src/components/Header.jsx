@@ -116,6 +116,11 @@ export default function Header() {
                 </span>
                 <span className="text-sm">{currentUser.email}</span>
               </Dropdown.Header>
+              {currentUser.isAdmin && (
+                <Dropdown.Item onClick={() => navigate("/admin-page")}>
+                  Dashboard
+                </Dropdown.Item>
+              )}
               <Dropdown.Item onClick={handleSignOut}>Signout</Dropdown.Item>
             </Dropdown>
           ) : (

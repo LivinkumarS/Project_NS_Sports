@@ -33,5 +33,6 @@ const blogModel = mongoose.Schema(
 );
 
 const BlogPost = new mongoose.model("BlogPost", blogModel);
+export const RequestBlog = new mongoose.model("RequestBlog", blogModel);
 
 export default BlogPost;
