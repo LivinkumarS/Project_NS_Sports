@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "flowbite-react";
+import { Button, Spinner } from "flowbite-react";
 
 export default function Blog() {
   const apiURL = import.meta.env.VITE_API_URL;
@@ -77,35 +77,46 @@ export default function Blog() {
       </div>
 
       {loading ? (
-        <div className="text-center text-xl">Loading...</div>
+        <div className="text-center text-xl">
+          Loading...
+          <Spinner
+            size="sm"
+            color="warning"
+            aria-label="Warning spinner example"
+          />
+        </div>
       ) : (
         <>
           <div className="grid min-h-[40vh] grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {posts.length>0?posts.map((post) => (
-              <Link
-                to={`/blog-post/${post.slug}`}
-                key={post.id}
-                className="bg-white shadow-lg rounded-lg overflow-hidden"
-              >
-                <div className="p-6">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-48 object-cover mb-2"
-                  />
-                  <h2 className="text-lg sm:text-xl font-semibold">
-                    {post.title}
-                  </h2>
-                  <p className="text-gray-600 text-sm">
-                    {new Date(post.updatedAt).toLocaleDateString()} •{" "}
-                    {post.authorName}
-                  </p>
-                  <span className="text-blue-500 hover:text-blue-700 font-medium">
-                    Read More
-                  </span>
-                </div>
-              </Link>
-            )):(<p className="text-2xl">{`No Posts...Sorry :(`}</p>)}
+            {posts.length > 0 ? (
+              posts.map((post) => (
+                <Link
+                  to={`/blog-post/${post.slug}`}
+                  key={post._id}
+                  className="bg-white shadow-lg rounded-lg overflow-hidden"
+                >
+                  <div className="p-6">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-48 object-cover mb-2"
+                    />
+                    <h2 className="text-lg sm:text-xl font-semibold">
+                      {post.title}
+                    </h2>
+                    <p className="text-gray-600 text-sm">
+                      {new Date(post.updatedAt).toLocaleDateString()} •{" "}
+                      {post.authorName}
+                    </p>
+                    <span className="text-blue-500 hover:text-blue-700 font-medium">
+                      Read More
+                    </span>
+                  </div>
+                </Link>
+              ))
+            ) : (
+              <p className="text-2xl">{`No Posts...Sorry :(`}</p>
+            )}
           </div>
 
           <div className="flex justify-center items-center mt-6">

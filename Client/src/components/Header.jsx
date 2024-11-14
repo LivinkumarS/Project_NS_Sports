@@ -32,7 +32,7 @@ export default function Header() {
       </Link>
       <nav className="font-semibold gap-4 md:gap-7 items-center justify-center hidden md:flex">
         <Link
-          to="/live"
+          to="/"
           className="hover:text-[#90e0ef] transition-all ease-linear text-sm gap-1"
         >
           <div className="flex flex-col items-center justify-end">

@@ -3,13 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: Glida;
-  src: url('/font/Gilda_Display/GildaDisplay-Regular.ttf');
-}
-
-@font-face {
-  font-family: Barlow;
-  src: url('/Barlow-Regular.ttf');
+  font-family: poppins;
+  src: url("/font/Poppins-Regular.ttf");
 }
 
 * {
@@ -20,7 +15,7 @@
   font-family: Glida;
 }
 
-html{
+html {
   overflow-x: hidden;
 }
 
@@ -30,26 +25,46 @@ body {
   background-color: rgb(245, 245, 245);
 }
 
-h1,h2,h3,h4,h5,h6{
-  
-  font-family: Glida;
-  font-weight: 400;
+* {
+  font-family: poppins;
+  font-size: 15px;
 }
 
-p{
-  font-family: Barlow;
-  font-size: 15px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: poppins;
+  font-weight: 400;
 }
 
 .sidebar {
   transition: all 0.7s ease;
 }
 
-
-
 .blurred-bg {
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 10px;
+}
+
+/* request blogs */
+
+.overflow-x-auto {
+  overflow-x: auto;
+}
+
+.overflow-x-auto::-webkit-scrollbar {
+  display: none;
+}
+
+.overflow-x-auto {
+  scrollbar-width: none;
+}
+
+.overflow-x-auto .w-full {
+  padding-bottom: 8px;
 }
