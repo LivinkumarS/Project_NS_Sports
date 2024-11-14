@@ -101,7 +101,7 @@ export default function News() {
         ) : posts.length > 0 ? (
           posts.map((post) => (
             <Link
-              to={`/newspost/${post.slug}`}
+              to={`/news-post/${post.slug}`}
               key={post._id}
               className="news-post bg-white rounded-lg shadow-lg p-3 transition-transform transform hover:scale-105"
             >

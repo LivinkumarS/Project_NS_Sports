@@ -21,6 +21,7 @@ import AdminPage from "./pages/AdminPage";
 import BlogRequest from "./pages/BlogRequest";
 import RequestBlogPost from "./pages/RequestBlogPost";
 import CreateNews from "./pages/CreateNews";
+import NewsPost from "./pages/NewsPost";
 
 export default function App() {
   const [sessStor, setSessStor] = useState(null);
@@ -70,6 +71,7 @@ export default function App() {
           <Route path="/live/:matchKey" element={<LiveMatchPage />} />
           <Route path="/live" element={<LiveMatchPage />} />
           <Route path="/blog-post/:slug" element={<BlogPost />} />
+          <Route path="/news-post/:slug" element={<NewsPost />} />
           <Route path="/create-blog" element={<CreateBlog />} />
           <Route path="/blog-request" element={<BlogRequest />} />
           <Route path="/request-blog/:slug" element={<RequestBlogPost />} />
