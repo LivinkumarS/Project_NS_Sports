@@ -14,7 +14,7 @@ import { BiError } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-export default function CreatePost() {
+export default function CreateNews() {
   const { currentUser } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ title: "", content: "" });
@@ -62,7 +62,7 @@ export default function CreatePost() {
     }
 
     try {
-      const res = await fetch(`${apiURL}/api/blog/create`, {
+      const res = await fetch(`${apiURL}/api/news/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -98,7 +98,7 @@ export default function CreatePost() {
   return (
     <div className="p-6 max-w-4xl min-h-screen mx-auto bg-white rounded-lg shadow-lg">
       <h1 className="font-bold text-center my-7 text-4xl text-[#0077b6]">
-        Create Blog Post
+        Create News Post
       </h1>
       <form className="flex flex-col gap-6" onSubmit={handlePostSubmit}>
         <TextInput
@@ -160,7 +160,7 @@ export default function CreatePost() {
           className="w-full mx-auto text-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition duration-200 ease-in-out transform hover:scale-105"
           disabled={imageUploadingProgress > 0 && imageUploadingProgress < 100}
         >
-          {currentUser.isAdmin ? "Submit Post" : "Request Post"}
+          Submit Post
         </Button>
       </form>
       {errorMessage && (

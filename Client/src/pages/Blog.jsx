@@ -12,10 +12,12 @@ export default function Blog() {
   const [loading, setLoading] = useState(false);
 
   const handleSearch = (event) => {
+    setCurrentPage(1);
     setSearchTerm(event.target.value.toLowerCase());
   };
 
   const handleFilterByAuthor = (event) => {
+    setCurrentPage(1);
     setFilterByAuthor(event.target.value);
   };
 
@@ -66,7 +68,7 @@ export default function Blog() {
           value={filterByAuthor}
           onChange={handleFilterByAuthor}
         />
-        <Link to="/createBlog">
+        <Link to="/create-blog">
           <button
             style={{ backgroundColor: "#0077b6" }}
             className="text-white px-4 py-2 rounded-xl shadow-lg transition-transform duration-200 transform hover:scale-105 hover:bg-opacity-90 focus:outline-none"
