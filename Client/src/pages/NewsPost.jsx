@@ -43,7 +43,7 @@ const NewsPost = () => {
         </h1>
         <div className="text-sm sm:text-base text-gray-500 mb-4">
           <p className="mb-2">By: {post.authorName}</p>
-          <p>{new Date(post.date).toLocaleDateString()}</p>
+          <p>{new Date(post.updatedAt).toLocaleString()}</p>
         </div>
         <div className="relative mb-6 rounded-lg overflow-hidden shadow-md shadow-gray-300">
           <img
