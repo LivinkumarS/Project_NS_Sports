@@ -89,7 +89,7 @@ export default function News() {
               style={{ backgroundColor: '#0077b6' }}
               className="text-white px-4 py-2 rounded-xl shadow-lg transition-transform duration-200 transform hover:scale-105 hover:bg-opacity-90 focus:outline-none"
             >
-              Create Blog
+              Create News
             </button>
           </Link>
         )}
