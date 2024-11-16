@@ -106,7 +106,6 @@ export default function Header() {
                     className="p-1  ring-gray-300 dark:ring-gray-500 rounded-full h-10 w-10"
                     data-testid="flowbite-avatar-img"
                   ></img>
-                  {/* <h6 className="text-sm">Profile</h6> */}
                 </div>
               }
             >
@@ -187,7 +186,7 @@ export default function Header() {
           onClick={() => {
             setNavState(false);
           }}
-          to="/live"
+          to="/"
           className="hover:text-[#d62929] transition-all ease-linear text-sm gap-1"
         >
           <div className="flex gap-3 items-center justify-end">
