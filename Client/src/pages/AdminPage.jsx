@@ -202,7 +202,7 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      <h1 className="text-3xl font-bold mb-4 sm:mx-5">Blog Post Requests</h1>
+      <h1 className="text-3xl font-bold mb-4 sm:mx-5 mt-4">Blog Post Requests</h1>
       {errorMessage && <Alert color="failure">{errorMessage}</Alert>}
       <div className="request-blog-table overflow-x-auto sm:mx-5">
         <Table className="w-full mt-4 overflow-x-auto min-w-[800px]">
