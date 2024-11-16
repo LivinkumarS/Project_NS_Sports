@@ -13,8 +13,9 @@ const ApiAuthFailed = () => {
         <a
           href="/"
           className="inline-flex items-center px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
+          onClick={()=>window.location.reload()}
         >
-          Go to Homepage
+          Try Again
           <svg
             className="ml-2 w-5 h-5"
             fill="currentColor"
