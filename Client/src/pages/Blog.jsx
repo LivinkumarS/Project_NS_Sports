@@ -79,7 +79,7 @@ export default function Blog() {
       </div>
 
       {loading ? (
-        <div className="text-center text-xl">
+        <div className="min-h-[50vh] text-center text-xl">
           Loading...
           <Spinner
             size="sm"
@@ -89,7 +89,7 @@ export default function Blog() {
         </div>
       ) : (
         <>
-          <div className="grid min-h-[40vh] grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="min-h-[50vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {posts.length > 0 ? (
               posts.map((post) => (
                 <Link

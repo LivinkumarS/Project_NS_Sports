@@ -22,6 +22,9 @@ import RequestBlogPost from "./pages/RequestBlogPost";
 import CreateNews from "./pages/CreateNews";
 import NewsPost from "./pages/NewsPost";
 import ApiFailed from "./components/ApiAuthFailed";
+import VideoPost from "./pages/VideoPostPage";
+import Videos from "./pages/Video";
+import CreateVideo from "./pages/CreateVideo";
 
 export default function App() {
   const [sessStor, setSessStor] = useState(null);
@@ -74,18 +77,9 @@ export default function App() {
             <Route path="/" element={<ApiFailed />} />
             <Route path="/schedule" element={<ApiFailed />} />
             <Route path="/series" element={<ApiFailed />} />
-            <Route
-              path="/match/:matchKey"
-              element={<ApiFailed />}
-            />
-            <Route
-              path="/tournament/:tourKey"
-              element={<ApiFailed />}
-            />
-            <Route
-              path="/live/:matchKey"
-              element={<ApiFailed />}
-            />
+            <Route path="/match/:matchKey" element={<ApiFailed />} />
+            <Route path="/tournament/:tourKey" element={<ApiFailed />} />
+            <Route path="/live/:matchKey" element={<ApiFailed />} />
           </>
         )}
 
@@ -98,9 +92,12 @@ export default function App() {
         <Route path="/create-blog" element={<CreateBlog />} />
         <Route path="/blog-request" element={<BlogRequest />} />
         <Route path="/request-blog/:slug" element={<RequestBlogPost />} />
+        <Route path="/video-post/:slug" element={<VideoPost />} />
+        <Route path="/videos" element={<Videos />} />
         <Route element={<PrivateRoute />}>
           <Route path="/admin-page" element={<AdminPage />} />
           <Route path="/create-news" element={<CreateNews />} />
+          <Route path="/create-video" element={<CreateVideo />} />
         </Route>
       </Routes>
 

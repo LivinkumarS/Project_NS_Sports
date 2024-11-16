@@ -7,6 +7,7 @@ import blogRoute from "./Routes/blogRoute.js";
 import path from "path";
 import CricketRoute from "./Routes/CricketRoute.js";
 import NewsRoute from "./Routes/NewsRoute.js";
+import videoRoute from "./Routes/videoRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -40,6 +41,7 @@ app.get("/", (req, res) => {
 app.use("/api/auth", AuthRoute);
 app.use("/api/blog", blogRoute);
 app.use("/api/news", NewsRoute);
+app.use("/api/video", videoRoute);
 app.use("/api/cricket", CricketRoute);
 
 // Error Handling
