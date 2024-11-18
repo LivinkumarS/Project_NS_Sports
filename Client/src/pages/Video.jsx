@@ -47,17 +47,9 @@ export default function Videos() {
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6 text-center">Videos</h1>
-
-      <div className="flex flex-col md:flex-row justify-between items-center mb-6 space-y-4 md:space-y-0">
-        <input
-          type="text"
-          placeholder="Search videos..."
-          className="input input-bordered w-full md:w-1/2 border-0 rounded-xl shadow-xl"
-          value={searchTerm}
-          onChange={handleSearch}
-        />
-        {currentUser.isAdmin && (
+      <div className="flex w-full justify-between">
+        <h1 className="text-3xl font-bold mb-6 text-center">Videos</h1>
+        {(currentUser && currentUser.isAdmin) && (
           <Link to="/create-video">
             <button
               style={{ backgroundColor: "#0077b6" }}
@@ -67,6 +59,16 @@ export default function Videos() {
             </button>
           </Link>
         )}
+      </div>
+
+      <div className="flex flex-col md:flex-row justify-center items-center mb-6 space-y-4 md:space-y-0">
+        <input
+          type="text"
+          placeholder="Search videos..."
+          className="input input-bordered w-full md:w-1/2 border-0 rounded-xl shadow-xl"
+          value={searchTerm}
+          onChange={handleSearch}
+        />
       </div>
 
       {loading ? (

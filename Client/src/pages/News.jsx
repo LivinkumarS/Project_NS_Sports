@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function News() {
   const apiURL = import.meta.env.VITE_API_URL;
   const { currentUser } = useSelector((state) => state.user);
   const [posts, setPosts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [dateRangeFilter, setDateRangeFilter] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [dateRangeFilter, setDateRangeFilter] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false);
 
   const extractFirst100Words = (htmlContent) => {
-    const tempDiv = document.createElement('div');
+    const tempDiv = document.createElement("div");
     tempDiv.innerHTML = htmlContent;
-    const textContent = tempDiv.textContent || tempDiv.innerText || '';
+    const textContent = tempDiv.textContent || tempDiv.innerText || "";
     const words = textContent.split(/\s+/);
-    return words.slice(0, 100).join(' ') + '...';
+    return words.slice(0, 100).join(" ") + "...";
   };
 
   const fetchPosts = async (page = 1) => {
@@ -26,12 +26,12 @@ export default function News() {
       const response = await fetch(
         `${apiURL}/api/news/getallnews?page=${page}&limit=9&search=${searchTerm}&dateRange=${dateRangeFilter}`
       );
-      if (!response.ok) throw new Error('Failed to fetch news');
+      if (!response.ok) throw new Error("Failed to fetch news");
       const data = await response.json();
       setPosts(data.posts);
       setTotalPages(data.totalPages);
     } catch (error) {
-      console.error('Error fetching news:', error);
+      console.error("Error fetching news:", error);
     }
     setLoading(false);
   };
@@ -60,9 +60,21 @@ export default function News() {
 
   return (
     <div className="news-page bg-gray-100 min-h-screen p-6">
-      <h1 className="text-4xl font-bold text-center text-[#0077b6] mb-8">
-        Latest News
-      </h1>
+      <div className="flex justify-between w-full max-w-[1200px] mx-auto">
+        <h1 className="text-4xl font-bold text-center mb-8">
+          Latest News
+        </h1>
+        {currentUser && currentUser.isAdmin && (
+          <Link to="/create-news">
+            <button
+              style={{ backgroundColor: "#0077b6" }}
+              className="text-white px-4 py-2 rounded-xl shadow-lg transition-transform duration-200 transform hover:scale-105 hover:bg-opacity-90 focus:outline-none"
+            >
+              Create News
+            </button>
+          </Link>
+        )}
+      </div>
 
       <div className="filters max-w-[1200px] mx-auto mb-6 flex flex-col md:flex-row justify-between items-center gap-4">
         <input
@@ -70,7 +82,7 @@ export default function News() {
           placeholder="Search news..."
           value={searchTerm}
           onChange={handleSearch}
-          className="rounded-lg text-xs sm:text-[15px] sm:flex-1 sm:p-3 border-0 shadow-lg w-full md:w-1/5 focus:ring-[#0077b6] focus:border-[#0077b6]"
+          className="rounded-lg text-xs sm:text-[15px] max-w-[600px] sm:flex-1 sm:p-3 border-0 shadow-lg w-full md:w-1/5 focus:ring-[#0077b6] focus:border-[#0077b6]"
         />
         <select
           value={dateRangeFilter}
@@ -82,17 +94,6 @@ export default function News() {
           <option value="this-week">This Week</option>
           <option value="this-month">This Month</option>
         </select>
-
-        {currentUser && currentUser.isAdmin && (
-          <Link to="/create-news">
-            <button
-              style={{ backgroundColor: '#0077b6' }}
-              className="text-white px-4 py-2 rounded-xl shadow-lg transition-transform duration-200 transform hover:scale-105 hover:bg-opacity-90 focus:outline-none"
-            >
-              Create News
-            </button>
-          </Link>
-        )}
       </div>
 
       <div className="max-w-[800px] min-h-[40vh] grid grid-cols-1  mx-5 sm:mx-auto gap-6">

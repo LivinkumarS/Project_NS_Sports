@@ -51,7 +51,17 @@ export default function Blog() {
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6 text-center">Blog Posts</h1>
+      <div className="flex justify-between w-full">
+        <h1 className="text-3xl font-bold mb-6 text-center">Blog Posts</h1>
+        <Link to="/create-blog">
+          <button
+            style={{ backgroundColor: "#0077b6" }}
+            className="text-white px-4 py-2 rounded-xl shadow-lg transition-transform duration-200 transform hover:scale-105 hover:bg-opacity-90 focus:outline-none"
+          >
+            Create Blog
+          </button>
+        </Link>
+      </div>
 
       <div className="flex flex-col md:flex-row justify-between items-center mb-6 space-y-4 md:space-y-0">
         <input
@@ -68,14 +78,6 @@ export default function Blog() {
           value={filterByAuthor}
           onChange={handleFilterByAuthor}
         />
-        <Link to="/create-blog">
-          <button
-            style={{ backgroundColor: "#0077b6" }}
-            className="text-white px-4 py-2 rounded-xl shadow-lg transition-transform duration-200 transform hover:scale-105 hover:bg-opacity-90 focus:outline-none"
-          >
-            Create Blog
-          </button>
-        </Link>
       </div>
 
       {loading ? (
