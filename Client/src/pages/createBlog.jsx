@@ -76,7 +76,7 @@ export default function CreatePost() {
 
       const response = await res.json();
       if (res.ok) {
-        if (currentUser.isAdmin) {
+        if (currentUser && currentUser.isAdmin) {
           navigate(`/blog-post/${response.slug}`);
         } else {
           navigate(`/blog-request`);
@@ -160,7 +160,7 @@ export default function CreatePost() {
           className="w-full mx-auto text-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition duration-200 ease-in-out transform hover:scale-105"
           disabled={imageUploadingProgress > 0 && imageUploadingProgress < 100}
         >
-          {currentUser.isAdmin ? "Submit Post" : "Request Post"}
+          {currentUser && currentUser.isAdmin ? "Submit Post" : "Request Post"}
         </Button>
       </form>
       {errorMessage && (
