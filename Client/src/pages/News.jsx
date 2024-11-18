@@ -1,3 +1,4 @@
+import { Spinner } from "flowbite-react";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -98,7 +99,12 @@ export default function News() {
 
       <div className="max-w-[800px] min-h-[40vh] grid grid-cols-1  mx-5 sm:mx-auto gap-6">
         {loading ? (
-          <p className="text-center text-gray-600">Loading...</p>
+          <p className="text-center text-gray-600">Loading...
+          <Spinner
+            size="sm"
+            color="warning"
+            aria-label="Warning spinner example"
+          /></p>
         ) : posts.length > 0 ? (
           posts.map((post) => (
             <Link
