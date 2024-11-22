@@ -70,7 +70,7 @@ export default function App() {
             <Route path="/series" element={<Series />} />
             <Route path="/match/:matchKey" element={<MatchDetails />} />
             <Route path="/tournament/:tourKey" element={<TourDetails />} />
-            <Route path="/live/:matchKey" element={<LiveMatchPage />} />
+            {/* <Route path="/live/:matchKey" element={<LiveMatchPage />} /> */}
           </>
         ) : (
           <>

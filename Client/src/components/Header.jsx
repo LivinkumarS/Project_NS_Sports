@@ -58,7 +58,7 @@ export default function Header() {
             <h6>Series</h6>
           </div>
         </Link>
-        <Link
+        {/* <Link
           to="/teams"
           className="hover:text-[#90e0ef] transition-all ease-linear text-sm gap-1"
         >
@@ -66,7 +66,7 @@ export default function Header() {
             <AiOutlineTeam className="text-xl" />
             <h6>Teams</h6>
           </div>
-        </Link>
+        </Link> */}
         <Link
           to="/news"
           className="hover:text-[#90e0ef] transition-all ease-linear text-sm gap-1"
@@ -218,7 +218,7 @@ export default function Header() {
             <h6>Series</h6>
           </div>
         </Link>
-        <Link
+        {/* <Link
           onClick={() => {
             setNavState(false);
           }}
@@ -229,7 +229,7 @@ export default function Header() {
             <AiOutlineTeam className="text-xl" />
             <h6>Teams</h6>
           </div>
-        </Link>
+        </Link> */}
         <Link
           onClick={() => {
             setNavState(false);
