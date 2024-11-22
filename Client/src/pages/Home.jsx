@@ -4,7 +4,6 @@ import { GoDotFill } from "react-icons/go";
 import { Link, useLocation } from "react-router-dom";
 import CompletedMatches from "../components/CompletedMatches";
 import UpcomingMatches from "../components/UpcomingMatches";
-import VideoGlimp from "../components/VideoGlimp";
 import CountryFlags from "../components/CountryFlags";
 
 const Home = () => {
